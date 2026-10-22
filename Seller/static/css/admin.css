@@ -1,0 +1,47 @@
+/* Admin console: structured, data-dense */
+body[data-kind=admin] {
+    --pn-bg: #F1ECE0;
+    font-size: .875rem
+}
+
+body[data-kind=admin] .sidebar {
+    background: var(--cc-brown);
+    border-color: var(--cc-brown)
+}
+
+body[data-kind=admin] .sidebar .brand,
+body[data-kind=admin] .side-list a,
+body[data-kind=admin] .side-foot {
+    color: #F2E8D5
+}
+
+body[data-kind=admin] .side-list a i,
+body[data-kind=admin] .side-group,
+body[data-kind=admin] .side-foot small {
+    color: #BFAE98
+}
+
+body[data-kind=admin] .side-list a:hover {
+    background: rgba(255, 255, 255, .08)
+}
+
+body[data-kind=admin] .side-list a.active {
+    background: var(--cc-saffron);
+    color: #fff
+}
+
+body[data-kind=admin] .side-list a.active i {
+    color: #fff
+}
+
+body[data-kind=admin] .side-foot {
+    border-color: rgba(255, 255, 255, .12)
+}
+
+body[data-kind=admin] .panel-top {
+    border-top: 3px solid var(--cc-green)
+}
+
+body[data-kind=admin] .pcard-b {
+    padding: .9rem
+}

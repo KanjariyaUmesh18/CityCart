@@ -1,0 +1,273 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reviews · CityCart</title>
+    <meta name="description" content="CityCart – Apna Bazaar, Apne Log. Shop local, grow local.">
+    <link rel="icon" href="{% static 'assest/logo/citycart-logo.svg' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/variables.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+    <link rel="stylesheet" href="{% static 'css/panel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/seller.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+</head>
+
+<body class=" " data-root="../" data-kind="seller" data-page="reviews">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="panel" data-kind="seller">
+        <aside class="sidebar" id="sidebar" aria-label="Seller navigation">
+            <div class="side-head"><a class="brand" href="{% url 'dashboard' %}"><img
+                        src="{% static 'assest/logo/citycart-logo.svg' %}" alt="" width="34" height="34"><span
+                        class="txt">CityCart<small>Seller Centre</small></span></a><button
+                    class="btn-icon d-lg-none side-close" type="button" aria-label="Close menu"><i
+                        class="fa-solid fa-xmark"></i></button></div>
+            <nav>
+                <p class="side-group">Overview</p>
+                <ul class="side-list">
+                    <li><a href="{% url 'dashboard' %}" class=""><i class="fa-solid fa-gauge"
+                                aria-hidden="true"></i><span>Dashboard</span></a></li>
+                    <li><a href="{% url 'products' %}" class=""><i class="fa-solid fa-boxes-stacked"
+                                aria-hidden="true"></i><span>Products</span></a></li>
+                    <li><a href="{% url 'inventory' %}" class=""><i class="fa-solid fa-warehouse"
+                                aria-hidden="true"></i><span>Inventory</span></a></li>
+                    <li><a href="{% url 'orders' %}" class=""><i class="fa-solid fa-receipt"
+                                aria-hidden="true"></i><span>Orders</span></a></li>
+                </ul>
+                <p class="side-group">Business</p>
+                <ul class="side-list">
+                    <li><a href="{% url 'analytics' %}" class=""><i class="fa-solid fa-chart-line"
+                                aria-hidden="true"></i><span>Analytics</span></a></li>
+                    <li><a href="{% url 'earnings' %}" class=""><i class="fa-solid fa-indian-rupee-sign"
+                                aria-hidden="true"></i><span>Earnings & payouts</span></a></li>
+                    <li><a href="{% url 'reviews' %}" class="active" aria-current=page><i class="fa-solid fa-star"
+                                aria-hidden="true"></i><span>Reviews</span></a></li>
+                </ul>
+                <p class="side-group">Shop</p>
+                <ul class="side-list">
+                    <li><a href="{% url 'shop-profile' %}" class=""><i class="fa-solid fa-store"
+                                aria-hidden="true"></i><span>Shop profile</span></a></li>
+                    <li><a href="{% url 'store-preview' %}" class=""><i class="fa-solid fa-eye"
+                                aria-hidden="true"></i><span>Public preview</span></a></li>
+                    <li><a href="{% url 'verification-status' %}" class=""><i class="fa-solid fa-shield-halved"
+                                aria-hidden="true"></i><span>Verification</span></a></li>
+                </ul>
+                <p class="side-group">Help</p>
+                <ul class="side-list">
+                    <li><a href="{% url 'notifications' %}" class=""><i class="fa-solid fa-bell"
+                                aria-hidden="true"></i><span>Notifications</span></a></li>
+                    <li><a href="{% url 'support' %}" class=""><i class="fa-solid fa-life-ring"
+                                aria-hidden="true"></i><span>Support</span></a></li>
+                    <li><a href="{% url 'settings' %}" class=""><i class="fa-solid fa-gear"
+                                aria-hidden="true"></i><span>Settings</span></a></li>
+                </ul>
+            </nav>
+            <div class="side-foot"><img src="../assets/images/avatars/a6.svg" alt="" width="36" height="36">
+                <div><strong>Bhavna Patel</strong><small>Bhavna Ethnic Boutique</small></div><a href="login.html"
+                    class="btn-icon ms-auto" aria-label="Sign out" title="Sign out (demo)"><i
+                        class="fa-solid fa-right-from-bracket"></i></a>
+            </div>
+        </aside>
+        <div class="side-backdrop" id="sideBackdrop"></div>
+        <div class="panel-main">
+            <header class="panel-top"><button class="btn-icon d-lg-none" type="button" id="sideToggle"
+                    aria-label="Open menu" aria-controls="sidebar"><i class="fa-solid fa-bars"></i></button>
+                <div class="panel-title">Reviews</div>
+
+                <form class="panel-search d-none d-lg-block" role="search" data-global-search><input
+                        class="form-control" type="search" placeholder="Search this page…"
+                        aria-label="Search this page"></form>
+                <div class="ms-auto d-flex align-items-center gap-2"><a
+                        class="btn-cc btn-sm-cc btn-outline-cc d-none d-md-inline-flex" href="../index.html"
+                        target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> View
+                        site</a><a class="btn-icon" href="{% url 'notifications' %}" aria-label="Notifications"><i
+                            class="fa-regular fa-bell"></i><span class="count-dot">3</span></a></div>
+            </header>
+            <main id="main" class="panel-content">
+                <div class="page-head">
+                    <div>
+                        <h1>Reviews</h1>
+                        <p>Customer feedback on your products. Sample reviews.</p>
+                    </div>
+                    <div class="page-actions"></div>
+                </div>
+                <section class="pcard ">
+                    <div class="pcard-h">
+                        <div>
+                            <h2>Rating summary</h2>
+                        </div>
+                        <div></div>
+                    </div>
+                    <div class="pcard-b">
+                        <div class="row align-items-center g-3">
+                            <div class="col-sm-4 text-center">
+                                <div class="stat" style="font-size:2.6rem">4.8</div>
+                                <div class="rating">★★★★★</div><small class="text-muted-cc">Sample ratings</small>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="d-flex align-items-center gap-2 mb-1 small"><span
+                                        style="width:28px">5★</span>
+                                    <div class="progress flex-grow-1">
+                                        <div class="progress-bar" style="width:72%"></div>
+                                    </div><span style="width:30px">72%</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-2 mb-1 small"><span
+                                        style="width:28px">4★</span>
+                                    <div class="progress flex-grow-1">
+                                        <div class="progress-bar" style="width:20%"></div>
+                                    </div><span style="width:30px">20%</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-2 mb-1 small"><span
+                                        style="width:28px">3★</span>
+                                    <div class="progress flex-grow-1">
+                                        <div class="progress-bar" style="width:6%"></div>
+                                    </div><span style="width:30px">6%</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-2 mb-1 small"><span
+                                        style="width:28px">2★</span>
+                                    <div class="progress flex-grow-1">
+                                        <div class="progress-bar" style="width:1%"></div>
+                                    </div><span style="width:30px">1%</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-2 mb-1 small"><span
+                                        style="width:28px">1★</span>
+                                    <div class="progress flex-grow-1">
+                                        <div class="progress-bar" style="width:1%"></div>
+                                    </div><span style="width:30px">1%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <article class="pcard status-scope">
+                    <div class="pcard-b">
+                        <div class="d-flex gap-3 flex-wrap"><img class="thumb round"
+                                src="../assets/images/avatars/a1.svg" alt="" width="44" height="44">
+                            <div class="flex-grow-1">
+                                <div class="d-flex justify-content-between flex-wrap"><strong>Aarav Mehta</strong><span
+                                        class="small text-muted-cc">11 Oct</span></div>
+                                <div class="rating">★★★★★</div>
+                                <div class="small text-muted-cc mb-1">on Hand-block Printed Cotton Kurta</div>
+                                <p class="mb-2">The block print is gorgeous and the fit is perfect. The shopkeeper even
+                                    called to confirm my size.</p>
+                                <div class="actions"><button class="btn-cc btn-outline-cc btn-sm-cc"
+                                        data-bs-toggle="collapse" data-bs-target="#rp0"><i
+                                            class="fa-solid fa-reply"></i> Respond</button><button type="button"
+                                        class="btn-cc btn-outline-cc btn-sm-cc"
+                                        data-confirm="Report this review to CityCart for moderation?"
+                                        data-title="Report review" data-ok="Report"
+                                        data-done="Review reported (demo)"><i class="fa-solid fa-flag"></i> Report
+                                        review</button></div>
+                                <div class="collapse mt-2" id="rp0"><label class="visually-hidden" for="rt0">Your
+                                        reply</label><textarea id="rt0" class="form-control mb-2" rows="2"
+                                        placeholder="Write a polite public reply"></textarea><button
+                                        class="btn-cc btn-green-cc btn-sm-cc" data-toast="Reply posted (demo)">Post
+                                        reply</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="pcard status-scope">
+                    <div class="pcard-b">
+                        <div class="d-flex gap-3 flex-wrap"><img class="thumb round"
+                                src="../assets/images/avatars/a4.svg" alt="" width="44" height="44">
+                            <div class="flex-grow-1">
+                                <div class="d-flex justify-content-between flex-wrap"><strong>Sneha Iyer</strong><span
+                                        class="small text-muted-cc">08 Oct</span></div>
+                                <div class="rating">★★★★★</div>
+                                <div class="small text-muted-cc mb-1">on Chanderi Silk Dupatta</div>
+                                <p class="mb-2">Lovely Chanderi, light and elegant. Packed beautifully.</p>
+                                <div class="actions"><button class="btn-cc btn-outline-cc btn-sm-cc"
+                                        data-bs-toggle="collapse" data-bs-target="#rp1"><i
+                                            class="fa-solid fa-reply"></i> Respond</button><button type="button"
+                                        class="btn-cc btn-outline-cc btn-sm-cc"
+                                        data-confirm="Report this review to CityCart for moderation?"
+                                        data-title="Report review" data-ok="Report"
+                                        data-done="Review reported (demo)"><i class="fa-solid fa-flag"></i> Report
+                                        review</button></div>
+                                <div class="collapse mt-2" id="rp1"><label class="visually-hidden" for="rt1">Your
+                                        reply</label><textarea id="rt1" class="form-control mb-2" rows="2"
+                                        placeholder="Write a polite public reply"></textarea><button
+                                        class="btn-cc btn-green-cc btn-sm-cc" data-toast="Reply posted (demo)">Post
+                                        reply</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="pcard status-scope">
+                    <div class="pcard-b">
+                        <div class="d-flex gap-3 flex-wrap"><img class="thumb round"
+                                src="../assets/images/avatars/a3.svg" alt="" width="44" height="44">
+                            <div class="flex-grow-1">
+                                <div class="d-flex justify-content-between flex-wrap"><strong>Rohan Desai</strong><span
+                                        class="small text-muted-cc">04 Oct</span></div>
+                                <div class="rating">★★★★☆</div>
+                                <div class="small text-muted-cc mb-1">on Bandhani Cotton Saree</div>
+                                <p class="mb-2">Saree is good quality. Delivery took one extra day.</p>
+                                <div class="actions"><button class="btn-cc btn-outline-cc btn-sm-cc"
+                                        data-bs-toggle="collapse" data-bs-target="#rp2"><i
+                                            class="fa-solid fa-reply"></i> Respond</button><button type="button"
+                                        class="btn-cc btn-outline-cc btn-sm-cc"
+                                        data-confirm="Report this review to CityCart for moderation?"
+                                        data-title="Report review" data-ok="Report"
+                                        data-done="Review reported (demo)"><i class="fa-solid fa-flag"></i> Report
+                                        review</button></div>
+                                <div class="collapse mt-2" id="rp2"><label class="visually-hidden" for="rt2">Your
+                                        reply</label><textarea id="rt2" class="form-control mb-2" rows="2"
+                                        placeholder="Write a polite public reply"></textarea><button
+                                        class="btn-cc btn-green-cc btn-sm-cc" data-toast="Reply posted (demo)">Post
+                                        reply</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="pcard status-scope">
+                    <div class="pcard-b">
+                        <div class="d-flex gap-3 flex-wrap"><img class="thumb round"
+                                src="../assets/images/avatars/a6.svg" alt="" width="44" height="44">
+                            <div class="flex-grow-1">
+                                <div class="d-flex justify-content-between flex-wrap"><strong>Kavita Joshi</strong><span
+                                        class="small text-muted-cc">29 Sep</span></div>
+                                <div class="rating">★★★☆☆</div>
+                                <div class="small text-muted-cc mb-1">on Cotton Palazzo Pants</div>
+                                <p class="mb-2">Fabric is nice but the palazzo was slightly longer than expected.</p>
+                                <div class="actions"><button class="btn-cc btn-outline-cc btn-sm-cc"
+                                        data-bs-toggle="collapse" data-bs-target="#rp3"><i
+                                            class="fa-solid fa-reply"></i> Respond</button><button type="button"
+                                        class="btn-cc btn-outline-cc btn-sm-cc"
+                                        data-confirm="Report this review to CityCart for moderation?"
+                                        data-title="Report review" data-ok="Report"
+                                        data-done="Review reported (demo)"><i class="fa-solid fa-flag"></i> Report
+                                        review</button></div>
+                                <div class="collapse mt-2" id="rp3"><label class="visually-hidden" for="rt3">Your
+                                        reply</label><textarea id="rt3" class="form-control mb-2" rows="2"
+                                        placeholder="Write a polite public reply"></textarea><button
+                                        class="btn-cc btn-green-cc btn-sm-cc" data-toast="Reply posted (demo)">Post
+                                        reply</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="{% static 'js/data.js'%}" defer></script>
+    <script src="{% static 'js/common.js'%}" defer></script>
+    <script src="{% static 'js/panel.js'%}" defer></script>
+    <script src="{% static 'js/seller.js'%}" defer></script>
+</body>
+
+</html>

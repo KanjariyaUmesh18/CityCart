@@ -1,0 +1,677 @@
+{% load static %}<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sales &amp; analytics · CityCart</title>
+    <meta name="description" content="CityCart – Apna Bazaar, Apne Log. Shop local, grow local.">
+    <link rel="icon" href="{% static 'assest/logo/citycart-logo.svg' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/variables.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+    <link rel="stylesheet" href="{% static 'css/panel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/seller.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+</head>
+
+<body class=" " data-root="../" data-kind="seller" data-page="analytics">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="panel" data-kind="seller">
+        <aside class="sidebar" id="sidebar" aria-label="Seller navigation">
+            <div class="side-head"><a class="brand" href="{% url 'dashboard' %}"><img
+                        src="{% static 'assest/logo/citycart-logo.svg' %}" alt="" width="34" height="34"><span
+                        class="txt">CityCart<small>Seller Centre</small></span></a><button
+                    class="btn-icon d-lg-none side-close" type="button" aria-label="Close menu"><i
+                        class="fa-solid fa-xmark"></i></button></div>
+            <nav>
+                <p class="side-group">Overview</p>
+                <ul class="side-list">
+                    <li><a href="{% url 'dashboard' %}" class=""><i class="fa-solid fa-gauge"
+                                aria-hidden="true"></i><span>Dashboard</span></a></li>
+                    <li><a href="{% url 'products' %}" class=""><i class="fa-solid fa-boxes-stacked"
+                                aria-hidden="true"></i><span>Products</span></a></li>
+                    <li><a href="{% url 'inventory' %}" class=""><i class="fa-solid fa-warehouse"
+                                aria-hidden="true"></i><span>Inventory</span></a></li>
+                    <li><a href="{% url 'orders' %}" class=""><i class="fa-solid fa-receipt"
+                                aria-hidden="true"></i><span>Orders</span></a></li>
+                </ul>
+                <p class="side-group">Business</p>
+                <ul class="side-list">
+                    <li><a href="{% url 'analytics' %}" class="active" aria-current=page><i
+                                class="fa-solid fa-chart-line" aria-hidden="true"></i><span>Analytics</span></a></li>
+                    <li><a href="{% url 'earnings' %}" class=""><i class="fa-solid fa-indian-rupee-sign"
+                                aria-hidden="true"></i><span>Earnings & payouts</span></a></li>
+                    <li><a href="{% url 'reviews' %}" class=""><i class="fa-solid fa-star"
+                                aria-hidden="true"></i><span>Reviews</span></a></li>
+                </ul>
+                <p class="side-group">Shop</p>
+                <ul class="side-list">
+                    <li><a href="{% url 'shop-profile' %}" class=""><i class="fa-solid fa-store"
+                                aria-hidden="true"></i><span>Shop profile</span></a></li>
+                    <li><a href="{% url 'store-preview' %}" class=""><i class="fa-solid fa-eye"
+                                aria-hidden="true"></i><span>Public preview</span></a></li>
+                    <li><a href="{% url 'verification-status' %}" class=""><i class="fa-solid fa-shield-halved"
+                                aria-hidden="true"></i><span>Verification</span></a></li>
+                </ul>
+                <p class="side-group">Help</p>
+                <ul class="side-list">
+                    <li><a href="{% url 'notifications' %}" class=""><i class="fa-solid fa-bell"
+                                aria-hidden="true"></i><span>Notifications</span></a></li>
+                    <li><a href="{% url 'support' %}" class=""><i class="fa-solid fa-life-ring"
+                                aria-hidden="true"></i><span>Support</span></a></li>
+                    <li><a href="{% url 'settings' %}" class=""><i class="fa-solid fa-gear"
+                                aria-hidden="true"></i><span>Settings</span></a></li>
+                </ul>
+            </nav>
+            <div class="side-foot"><img src="../assets/images/avatars/a6.svg" alt="" width="36" height="36">
+                <div><strong>Bhavna Patel</strong><small>Bhavna Ethnic Boutique</small></div><a href="login.html"
+                    class="btn-icon ms-auto" aria-label="Sign out" title="Sign out (demo)"><i
+                        class="fa-solid fa-right-from-bracket"></i></a>
+            </div>
+        </aside>
+        <div class="side-backdrop" id="sideBackdrop"></div>
+        <div class="panel-main">
+            <header class="panel-top"><button class="btn-icon d-lg-none" type="button" id="sideToggle"
+                    aria-label="Open menu" aria-controls="sidebar"><i class="fa-solid fa-bars"></i></button>
+                <div class="panel-title">Sales & analytics</div>
+
+                <form class="panel-search d-none d-lg-block" role="search" data-global-search><input
+                        class="form-control" type="search" placeholder="Search this page…"
+                        aria-label="Search this page"></form>
+                <div class="ms-auto d-flex align-items-center gap-2"><a
+                        class="btn-cc btn-sm-cc btn-outline-cc d-none d-md-inline-flex" href="../index.html"
+                        target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> View
+                        site</a><a class="btn-icon" href="{% url 'notifications' %}" aria-label="Notifications"><i
+                            class="fa-regular fa-bell"></i><span class="count-dot">3</span></a></div>
+            </header>
+            <main id="main" class="panel-content">
+                <div class="page-head">
+                    <div>
+                        <h1>Sales & analytics</h1>
+                        <p>Simple views of how your shop is doing. All numbers are sample data.</p>
+                    </div>
+                    <div class="page-actions"></div>
+                </div>
+                <ul class="nav nav-tabs mb-3" role="tablist">
+                    <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#a0"
+                            type="button">Last 7 days</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#a1"
+                            type="button">Last 30 days</button></li>
+                    <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#a2"
+                            type="button">Last 90 days</button></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="a0">
+                        <div class="row g-3 mb-3">
+                            <div class="col-6 col-xl-3">
+                                <div class="kpi kpi-saffron"><span class="kpi-ico"><i
+                                            class="fa-solid fa-indian-rupee-sign" aria-hidden="true"></i></span>
+                                    <div>
+                                        <div class="kpi-label">Revenue</div>
+                                        <div class="kpi-val">₹1,72,200</div>
+                                        <div class=kpi-note>Sample</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-xl-3">
+                                <div class="kpi kpi-green"><span class="kpi-ico"><i class="fa-solid fa-receipt"
+                                            aria-hidden="true"></i></span>
+                                    <div>
+                                        <div class="kpi-label">Orders</div>
+                                        <div class="kpi-val">80</div>
+                                        <div class=kpi-note>Sample</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-xl-3">
+                                <div class="kpi kpi-blue"><span class="kpi-ico"><i class="fa-solid fa-basket-shopping"
+                                            aria-hidden="true"></i></span>
+                                    <div>
+                                        <div class="kpi-label">Avg. order value</div>
+                                        <div class="kpi-val">₹2,152</div>
+                                        <div class=kpi-note>Sample</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-xl-3">
+                                <div class="kpi kpi-green"><span class="kpi-ico"><i class="fa-solid fa-rotate"
+                                            aria-hidden="true"></i></span>
+                                    <div>
+                                        <div class="kpi-label">Repeat customers</div>
+                                        <div class="kpi-val">34%</div>
+                                        <div class=kpi-note>Sample</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-lg-7">
+                                <section class="pcard ">
+                                    <div class="pcard-h">
+                                        <div>
+                                            <h2>Revenue trend</h2>
+                                        </div>
+                                        <div></div>
+                                    </div>
+                                    <div class="pcard-b"><svg class="chart" viewBox="0 0 560 250" role="img"
+                                            aria-label="Line chart of sample values">
+                                            <line x1="36" x2="556" y1="220" y2="220" stroke="var(--cc-border)" />
+                                            <line x1="36" x2="556" y1="151" y2="151" stroke="var(--cc-border)" />
+                                            <line x1="36" x2="556" y1="82" y2="82" stroke="var(--cc-border)" />
+                                            <line x1="36" x2="556" y1="14" y2="14" stroke="var(--cc-border)" />
+                                            <polygon
+                                                points="44,220 44,112 127,88 211,103 294,60 377,75 461,36 544,49 544,220"
+                                                fill="var(--cc-saffron)" opacity=".14" />
+                                            <polyline points="44,112 127,88 211,103 294,60 377,75 461,36 544,49"
+                                                fill="none" stroke="var(--cc-saffron)" stroke-width="3"
+                                                stroke-linejoin="round" />
+                                            <circle cx="44" cy="112" r="4" fill="#fff" stroke="var(--cc-saffron)"
+                                                stroke-width="2.5">
+                                                <title>Mon: 18200</title>
+                                            </circle><text x="44" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Mon</text>
+                                            <circle cx="127" cy="88" r="4" fill="#fff" stroke="var(--cc-saffron)"
+                                                stroke-width="2.5">
+                                                <title>Tue: 22400</title>
+                                            </circle><text x="127" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Tue</text>
+                                            <circle cx="211" cy="103" r="4" fill="#fff" stroke="var(--cc-saffron)"
+                                                stroke-width="2.5">
+                                                <title>Wed: 19800</title>
+                                            </circle><text x="211" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Wed</text>
+                                            <circle cx="294" cy="60" r="4" fill="#fff" stroke="var(--cc-saffron)"
+                                                stroke-width="2.5">
+                                                <title>Thu: 27100</title>
+                                            </circle><text x="294" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Thu</text>
+                                            <circle cx="377" cy="75" r="4" fill="#fff" stroke="var(--cc-saffron)"
+                                                stroke-width="2.5">
+                                                <title>Fri: 24600</title>
+                                            </circle><text x="377" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Fri</text>
+                                            <circle cx="461" cy="36" r="4" fill="#fff" stroke="var(--cc-saffron)"
+                                                stroke-width="2.5">
+                                                <title>Sat: 31200</title>
+                                            </circle><text x="461" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Sat</text>
+                                            <circle cx="544" cy="49" r="4" fill="#fff" stroke="var(--cc-saffron)"
+                                                stroke-width="2.5">
+                                                <title>Sun: 28900</title>
+                                            </circle><text x="544" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Sun</text>
+                                        </svg></div>
+                                </section>
+                            </div>
+                            <div class="col-lg-5">
+                                <section class="pcard ">
+                                    <div class="pcard-h">
+                                        <div>
+                                            <h2>Orders</h2>
+                                        </div>
+                                        <div></div>
+                                    </div>
+                                    <div class="pcard-b"><svg class="chart" viewBox="0 0 560 250" role="img"
+                                            aria-label="Bar chart: Mon 8, Tue 10, Wed 9, Thu 13, Fri 11, Sat 15, Sun 14">
+                                            <line x1="36" x2="556" y1="220" y2="220" stroke="var(--cc-border)" /><text
+                                                x="30" y="224" text-anchor="end" font-size="10"
+                                                fill="var(--cc-brown-soft)">0</text>
+                                            <line x1="36" x2="556" y1="151" y2="151" stroke="var(--cc-border)" /><text
+                                                x="30" y="155" text-anchor="end" font-size="10"
+                                                fill="var(--cc-brown-soft)">5</text>
+                                            <line x1="36" x2="556" y1="82" y2="82" stroke="var(--cc-border)" /><text
+                                                x="30" y="86" text-anchor="end" font-size="10"
+                                                fill="var(--cc-brown-soft)">10</text>
+                                            <line x1="36" x2="556" y1="14" y2="14" stroke="var(--cc-border)" /><text
+                                                x="30" y="18" text-anchor="end" font-size="10"
+                                                fill="var(--cc-brown-soft)">15</text>
+                                            <rect x="53" y="117" width="48" height="103" rx="4" fill="var(--cc-green)">
+                                                <title>Mon: 8</title>
+                                            </rect><text x="77" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Mon</text>
+                                            <rect x="128" y="91" width="48" height="129" rx="4" fill="var(--cc-green)">
+                                                <title>Tue: 10</title>
+                                            </rect><text x="151" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Tue</text>
+                                            <rect x="202" y="104" width="48" height="116" rx="4" fill="var(--cc-green)">
+                                                <title>Wed: 9</title>
+                                            </rect><text x="226" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Wed</text>
+                                            <rect x="276" y="53" width="48" height="167" rx="4" fill="var(--cc-green)">
+                                                <title>Thu: 13</title>
+                                            </rect><text x="300" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Thu</text>
+                                            <rect x="351" y="79" width="48" height="141" rx="4" fill="var(--cc-green)">
+                                                <title>Fri: 11</title>
+                                            </rect><text x="374" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Fri</text>
+                                            <rect x="425" y="27" width="48" height="193" rx="4" fill="var(--cc-green)">
+                                                <title>Sat: 15</title>
+                                            </rect><text x="449" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Sat</text>
+                                            <rect x="499" y="40" width="48" height="180" rx="4" fill="var(--cc-green)">
+                                                <title>Sun: 14</title>
+                                            </rect><text x="523" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Sun</text>
+                                        </svg></div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="a1">
+                        <div class="row g-3 mb-3">
+                            <div class="col-6 col-xl-3">
+                                <div class="kpi kpi-saffron"><span class="kpi-ico"><i
+                                            class="fa-solid fa-indian-rupee-sign" aria-hidden="true"></i></span>
+                                    <div>
+                                        <div class="kpi-label">Revenue</div>
+                                        <div class="kpi-val">₹2,60,000</div>
+                                        <div class=kpi-note>Sample</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-xl-3">
+                                <div class="kpi kpi-green"><span class="kpi-ico"><i class="fa-solid fa-receipt"
+                                            aria-hidden="true"></i></span>
+                                    <div>
+                                        <div class="kpi-label">Orders</div>
+                                        <div class="kpi-val">148</div>
+                                        <div class=kpi-note>Sample</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-xl-3">
+                                <div class="kpi kpi-blue"><span class="kpi-ico"><i class="fa-solid fa-basket-shopping"
+                                            aria-hidden="true"></i></span>
+                                    <div>
+                                        <div class="kpi-label">Avg. order value</div>
+                                        <div class="kpi-val">₹1,756</div>
+                                        <div class=kpi-note>Sample</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-xl-3">
+                                <div class="kpi kpi-green"><span class="kpi-ico"><i class="fa-solid fa-rotate"
+                                            aria-hidden="true"></i></span>
+                                    <div>
+                                        <div class="kpi-label">Repeat customers</div>
+                                        <div class="kpi-val">34%</div>
+                                        <div class=kpi-note>Sample</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-lg-7">
+                                <section class="pcard ">
+                                    <div class="pcard-h">
+                                        <div>
+                                            <h2>Revenue trend</h2>
+                                        </div>
+                                        <div></div>
+                                    </div>
+                                    <div class="pcard-b"><svg class="chart" viewBox="0 0 560 250" role="img"
+                                            aria-label="Line chart of sample values">
+                                            <line x1="36" x2="556" y1="220" y2="220" stroke="var(--cc-border)" />
+                                            <line x1="36" x2="556" y1="151" y2="151" stroke="var(--cc-border)" />
+                                            <line x1="36" x2="556" y1="82" y2="82" stroke="var(--cc-border)" />
+                                            <line x1="36" x2="556" y1="14" y2="14" stroke="var(--cc-border)" />
+                                            <polygon points="44,220 44,94 169,67 294,78 419,46 544,36 544,220"
+                                                fill="var(--cc-saffron)" opacity=".14" />
+                                            <polyline points="44,94 169,67 294,78 419,46 544,36" fill="none"
+                                                stroke="var(--cc-saffron)" stroke-width="3" stroke-linejoin="round" />
+                                            <circle cx="44" cy="94" r="4" fill="#fff" stroke="var(--cc-saffron)"
+                                                stroke-width="2.5">
+                                                <title>Wk 1: 42000</title>
+                                            </circle><text x="44" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Wk 1</text>
+                                            <circle cx="169" cy="67" r="4" fill="#fff" stroke="var(--cc-saffron)"
+                                                stroke-width="2.5">
+                                                <title>Wk 2: 51000</title>
+                                            </circle><text x="169" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Wk 2</text>
+                                            <circle cx="294" cy="78" r="4" fill="#fff" stroke="var(--cc-saffron)"
+                                                stroke-width="2.5">
+                                                <title>Wk 3: 47500</title>
+                                            </circle><text x="294" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Wk 3</text>
+                                            <circle cx="419" cy="46" r="4" fill="#fff" stroke="var(--cc-saffron)"
+                                                stroke-width="2.5">
+                                                <title>Wk 4: 58000</title>
+                                            </circle><text x="419" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Wk 4</text>
+                                            <circle cx="544" cy="36" r="4" fill="#fff" stroke="var(--cc-saffron)"
+                                                stroke-width="2.5">
+                                                <title>Wk 5: 61500</title>
+                                            </circle><text x="544" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Wk 5</text>
+                                        </svg></div>
+                                </section>
+                            </div>
+                            <div class="col-lg-5">
+                                <section class="pcard ">
+                                    <div class="pcard-h">
+                                        <div>
+                                            <h2>Orders</h2>
+                                        </div>
+                                        <div></div>
+                                    </div>
+                                    <div class="pcard-b"><svg class="chart" viewBox="0 0 560 250" role="img"
+                                            aria-label="Bar chart: Wk 1 24, Wk 2 29, Wk 3 27, Wk 4 33, Wk 5 35">
+                                            <line x1="36" x2="556" y1="220" y2="220" stroke="var(--cc-border)" /><text
+                                                x="30" y="224" text-anchor="end" font-size="10"
+                                                fill="var(--cc-brown-soft)">0</text>
+                                            <line x1="36" x2="556" y1="151" y2="151" stroke="var(--cc-border)" /><text
+                                                x="30" y="155" text-anchor="end" font-size="10"
+                                                fill="var(--cc-brown-soft)">12</text>
+                                            <line x1="36" x2="556" y1="82" y2="82" stroke="var(--cc-border)" /><text
+                                                x="30" y="86" text-anchor="end" font-size="10"
+                                                fill="var(--cc-brown-soft)">24</text>
+                                            <line x1="36" x2="556" y1="14" y2="14" stroke="var(--cc-border)" /><text
+                                                x="30" y="18" text-anchor="end" font-size="10"
+                                                fill="var(--cc-brown-soft)">36</text>
+                                            <rect x="59" y="88" width="67" height="132" rx="4" fill="var(--cc-green)">
+                                                <title>Wk 1: 24</title>
+                                            </rect><text x="92" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Wk 1</text>
+                                            <rect x="163" y="60" width="67" height="160" rx="4" fill="var(--cc-green)">
+                                                <title>Wk 2: 29</title>
+                                            </rect><text x="196" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Wk 2</text>
+                                            <rect x="267" y="71" width="67" height="149" rx="4" fill="var(--cc-green)">
+                                                <title>Wk 3: 27</title>
+                                            </rect><text x="300" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Wk 3</text>
+                                            <rect x="371" y="38" width="67" height="182" rx="4" fill="var(--cc-green)">
+                                                <title>Wk 4: 33</title>
+                                            </rect><text x="404" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Wk 4</text>
+                                            <rect x="475" y="27" width="67" height="193" rx="4" fill="var(--cc-green)">
+                                                <title>Wk 5: 35</title>
+                                            </rect><text x="508" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Wk 5</text>
+                                        </svg></div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="a2">
+                        <div class="row g-3 mb-3">
+                            <div class="col-6 col-xl-3">
+                                <div class="kpi kpi-saffron"><span class="kpi-ico"><i
+                                            class="fa-solid fa-indian-rupee-sign" aria-hidden="true"></i></span>
+                                    <div>
+                                        <div class="kpi-label">Revenue</div>
+                                        <div class="kpi-val">₹5,53,500</div>
+                                        <div class=kpi-note>Sample</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-xl-3">
+                                <div class="kpi kpi-green"><span class="kpi-ico"><i class="fa-solid fa-receipt"
+                                            aria-hidden="true"></i></span>
+                                    <div>
+                                        <div class="kpi-label">Orders</div>
+                                        <div class="kpi-val">365</div>
+                                        <div class=kpi-note>Sample</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-xl-3">
+                                <div class="kpi kpi-blue"><span class="kpi-ico"><i class="fa-solid fa-basket-shopping"
+                                            aria-hidden="true"></i></span>
+                                    <div>
+                                        <div class="kpi-label">Avg. order value</div>
+                                        <div class="kpi-val">₹1,516</div>
+                                        <div class=kpi-note>Sample</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-xl-3">
+                                <div class="kpi kpi-green"><span class="kpi-ico"><i class="fa-solid fa-rotate"
+                                            aria-hidden="true"></i></span>
+                                    <div>
+                                        <div class="kpi-label">Repeat customers</div>
+                                        <div class="kpi-val">34%</div>
+                                        <div class=kpi-note>Sample</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-lg-7">
+                                <section class="pcard ">
+                                    <div class="pcard-h">
+                                        <div>
+                                            <h2>Revenue trend</h2>
+                                        </div>
+                                        <div></div>
+                                    </div>
+                                    <div class="pcard-b"><svg class="chart" viewBox="0 0 560 250" role="img"
+                                            aria-label="Line chart of sample values">
+                                            <line x1="36" x2="556" y1="220" y2="220" stroke="var(--cc-border)" />
+                                            <line x1="36" x2="556" y1="151" y2="151" stroke="var(--cc-border)" />
+                                            <line x1="36" x2="556" y1="82" y2="82" stroke="var(--cc-border)" />
+                                            <line x1="36" x2="556" y1="14" y2="14" stroke="var(--cc-border)" />
+                                            <polygon points="44,220 44,66 294,51 544,36 544,220"
+                                                fill="var(--cc-saffron)" opacity=".14" />
+                                            <polyline points="44,66 294,51 544,36" fill="none"
+                                                stroke="var(--cc-saffron)" stroke-width="3" stroke-linejoin="round" />
+                                            <circle cx="44" cy="66" r="4" fill="#fff" stroke="var(--cc-saffron)"
+                                                stroke-width="2.5">
+                                                <title>Aug: 168000</title>
+                                            </circle><text x="44" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Aug</text>
+                                            <circle cx="294" cy="51" r="4" fill="#fff" stroke="var(--cc-saffron)"
+                                                stroke-width="2.5">
+                                                <title>Sep: 184500</title>
+                                            </circle><text x="294" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Sep</text>
+                                            <circle cx="544" cy="36" r="4" fill="#fff" stroke="var(--cc-saffron)"
+                                                stroke-width="2.5">
+                                                <title>Oct: 201000</title>
+                                            </circle><text x="544" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Oct</text>
+                                        </svg></div>
+                                </section>
+                            </div>
+                            <div class="col-lg-5">
+                                <section class="pcard ">
+                                    <div class="pcard-h">
+                                        <div>
+                                            <h2>Orders</h2>
+                                        </div>
+                                        <div></div>
+                                    </div>
+                                    <div class="pcard-b"><svg class="chart" viewBox="0 0 560 250" role="img"
+                                            aria-label="Bar chart: Aug 96, Sep 128, Oct 141">
+                                            <line x1="36" x2="556" y1="220" y2="220" stroke="var(--cc-border)" /><text
+                                                x="30" y="224" text-anchor="end" font-size="10"
+                                                fill="var(--cc-brown-soft)">0</text>
+                                            <line x1="36" x2="556" y1="151" y2="151" stroke="var(--cc-border)" /><text
+                                                x="30" y="155" text-anchor="end" font-size="10"
+                                                fill="var(--cc-brown-soft)">49</text>
+                                            <line x1="36" x2="556" y1="82" y2="82" stroke="var(--cc-border)" /><text
+                                                x="30" y="86" text-anchor="end" font-size="10"
+                                                fill="var(--cc-brown-soft)">98</text>
+                                            <line x1="36" x2="556" y1="14" y2="14" stroke="var(--cc-border)" /><text
+                                                x="30" y="18" text-anchor="end" font-size="10"
+                                                fill="var(--cc-brown-soft)">148</text>
+                                            <rect x="71" y="89" width="111" height="131" rx="4" fill="var(--cc-green)">
+                                                <title>Aug: 96</title>
+                                            </rect><text x="127" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Aug</text>
+                                            <rect x="245" y="45" width="111" height="175" rx="4" fill="var(--cc-green)">
+                                                <title>Sep: 128</title>
+                                            </rect><text x="300" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Sep</text>
+                                            <rect x="418" y="27" width="111" height="193" rx="4" fill="var(--cc-green)">
+                                                <title>Oct: 141</title>
+                                            </rect><text x="473" y="236" text-anchor="middle" font-size="10"
+                                                fill="var(--cc-brown-soft)">Oct</text>
+                                        </svg></div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-3">
+                    <div class="col-lg-6">
+                        <section class="pcard ">
+                            <div class="pcard-h">
+                                <div>
+                                    <h2>Sales by category</h2>
+                                </div>
+                                <div></div>
+                            </div>
+                            <div class="pcard-b">
+                                <div class="d-flex align-items-center gap-4 flex-wrap"><svg viewBox="0 0 42 42"
+                                        class="donut" role="img" aria-label="Share by category">
+                                        <circle cx="21" cy="21" r="15.9" fill="none" stroke="#E87524" stroke-width="7"
+                                            stroke-dasharray="38.0 62.0" stroke-dashoffset="25.0">
+                                            <title>Kurtas & shirts: 38%</title>
+                                        </circle>
+                                        <circle cx="21" cy="21" r="15.9" fill="none" stroke="#247447" stroke-width="7"
+                                            stroke-dasharray="31.0 69.0" stroke-dashoffset="-13.0">
+                                            <title>Sarees & dupattas: 31%</title>
+                                        </circle>
+                                        <circle cx="21" cy="21" r="15.9" fill="none" stroke="#8A5A3C" stroke-width="7"
+                                            stroke-dasharray="12.0 88.0" stroke-dashoffset="-44.0">
+                                            <title>Bottoms: 12%</title>
+                                        </circle>
+                                        <circle cx="21" cy="21" r="15.9" fill="none" stroke="#3F6B8F" stroke-width="7"
+                                            stroke-dasharray="11.0 89.0" stroke-dashoffset="-56.0">
+                                            <title>Kids: 11%</title>
+                                        </circle>
+                                        <circle cx="21" cy="21" r="15.9" fill="none" stroke="#C2851C" stroke-width="7"
+                                            stroke-dasharray="8.0 92.0" stroke-dashoffset="-67.0">
+                                            <title>Accessories: 8%</title>
+                                        </circle>
+                                    </svg>
+                                    <ul class="legend">
+                                        <li><span class="dot" style="background:#E87524"></span>Kurtas & shirts
+                                            <strong>38%</strong>
+                                        </li>
+                                        <li><span class="dot" style="background:#247447"></span>Sarees & dupattas
+                                            <strong>31%</strong>
+                                        </li>
+                                        <li><span class="dot" style="background:#8A5A3C"></span>Bottoms
+                                            <strong>12%</strong>
+                                        </li>
+                                        <li><span class="dot" style="background:#3F6B8F"></span>Kids
+                                            <strong>11%</strong>
+                                        </li>
+                                        <li><span class="dot" style="background:#C2851C"></span>Accessories
+                                            <strong>8%</strong>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-lg-6">
+                        <section class="pcard ">
+                            <div class="pcard-h">
+                                <div>
+                                    <h2>Best-selling products</h2>
+                                </div>
+                                <div></div>
+                            </div>
+                            <div class="pcard-b">
+                                <div class="table-responsive tbl-wrap">
+                                    <table class="table tbl stack align-middle" id="best" data-paged="5">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Product</th>
+                                                <th scope="col">Units</th>
+                                                <th scope="col">Revenue</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td data-label="Product">
+                                                    <div class="cell-flex"><img class="thumb"
+                                                            src="../assets/images/products/p4.svg"
+                                                            alt="Hand-block Printed Cotton Kurta" width="44" height="44"
+                                                            loading="lazy"><strong>Hand-block Printed Cotton
+                                                            Kurta</strong></div>
+                                                </td>
+                                                <td data-label="Units">46</td>
+                                                <td data-label="Revenue">₹59,754</td>
+                                            </tr>
+                                            <tr>
+                                                <td data-label="Product">
+                                                    <div class="cell-flex"><img class="thumb"
+                                                            src="../assets/images/products/p5.svg"
+                                                            alt="Chanderi Silk Dupatta" width="44" height="44"
+                                                            loading="lazy"><strong>Chanderi Silk Dupatta</strong></div>
+                                                </td>
+                                                <td data-label="Units">38</td>
+                                                <td data-label="Revenue">₹62,700</td>
+                                            </tr>
+                                            <tr>
+                                                <td data-label="Product">
+                                                    <div class="cell-flex"><img class="thumb"
+                                                            src="../assets/images/products/p6.svg"
+                                                            alt="Bandhani Cotton Saree" width="44" height="44"
+                                                            loading="lazy"><strong>Bandhani Cotton Saree</strong></div>
+                                                </td>
+                                                <td data-label="Units">31</td>
+                                                <td data-label="Revenue">₹66,650</td>
+                                            </tr>
+                                            <tr>
+                                                <td data-label="Product">
+                                                    <div class="cell-flex"><img class="thumb"
+                                                            src="../assets/images/products/p7.svg"
+                                                            alt="Ajrakh Cotton Stole" width="44" height="44"
+                                                            loading="lazy"><strong>Ajrakh Cotton Stole</strong></div>
+                                                </td>
+                                                <td data-label="Units">27</td>
+                                                <td data-label="Revenue">₹18,630</td>
+                                            </tr>
+                                            <tr>
+                                                <td data-label="Product">
+                                                    <div class="cell-flex"><img class="thumb"
+                                                            src="../assets/images/products/p8.svg"
+                                                            alt="Cotton Palazzo Pants" width="44" height="44"
+                                                            loading="lazy"><strong>Cotton Palazzo Pants</strong></div>
+                                                </td>
+                                                <td data-label="Units">22</td>
+                                                <td data-label="Revenue">₹16,478</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tbl-foot"><span class="small text-muted-cc" data-tbl-count="best"></span>
+                                    <ul class="pagination pagination-sm mb-0" data-tbl-pager="best"></ul>
+                                </div>
+                                <div class="empty-state d-none" data-tbl-empty="best"><i
+                                        class="fa-solid fa-magnifying-glass"></i>
+                                    <h3 class="h6 mt-2">No matching records</h3>
+                                    <p class="text-muted-cc mb-0">Try a different search or filter.</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="{% static 'js/data.js'%}" defer></script>
+    <script src="{% static 'js/common.js'%}" defer></script>
+    <script src="{% static 'js/panel.js'%}" defer></script>
+    <script src="{% static 'js/seller.js'%}" defer></script>
+</body>
+
+</html>

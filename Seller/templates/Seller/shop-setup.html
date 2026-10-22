@@ -1,0 +1,306 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shop setup · CityCart</title>
+    <meta name="description" content="CityCart – Apna Bazaar, Apne Log. Shop local, grow local.">
+    <link rel="icon" href="{% static 'assest/logo/citycart-logo.svg' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/variables.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+    <link rel="stylesheet" href="{% static 'css/panel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/seller.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+</head>
+
+<body class=" " data-root="../" data-kind="seller" data-page="shop-setup">
+    <main id="main">
+        <header class="bg-white border-bottom">
+            <div class="container py-2 d-flex align-items-center justify-content-between"><a class="brand"
+                    href="../index.html"><img src="{% static 'assest/logo/citycart-logo.svg' %}" alt="" width="34"
+                        height="34"><span class="txt">CityCart<small
+                            style="display:block;font-size:.62rem;color:var(--cc-saffron-dark)">Shop
+                            setup</small></span></a><a class="small" href="login.html">Sign out (demo)</a></div>
+        </header>
+        <div class="container py-4" style="max-width:820px">
+            <h1 class="h3">Set up your shop</h1>
+            <p class="text-muted-cc">Four short steps. You can change everything later in Shop profile.</p>
+            <div class="stepper" aria-label="Setup steps"><span class="on">1 Basics</span><span>2 Branding</span><span>3
+                    Hours & address</span><span>4 Fulfilment</span></div>
+            <form data-validate novalidate data-success="Shop submitted for review (demo)"
+                data-next="verification-status.html">
+                <div class="pcard">
+                    <div class="pcard-b">
+                        <div data-step-pane>
+                            <h2 class="h5">Tell customers about your shop</h2>
+                            <div class="row g-3">
+                                <div class="col-12"><label class="form-label" for="ss-n">Shop name</label><input
+                                        class="form-control" type="text" id="ss-n" name="ss-n"
+                                        value="Bhavna Ethnic Boutique" placeholder="" required>
+                                    <div class="invalid-feedback">This field is required.</div>
+                                </div>
+                                <div class="col-12"><label class="form-label" for="ss-d">Shop
+                                        description</label><textarea class="form-control" id="ss-d" name="ss-d" rows="4"
+                                        placeholder="What do you sell, and what makes your shop special?"
+                                        required></textarea>
+                                    <div class=form-text>Shown on your public shop page.</div>
+                                    <div class="invalid-feedback">This field is required.</div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-label">Product categories</div>
+                                    <div class="d-flex flex-wrap gap-2"><input type="checkbox" class="btn-check"
+                                            id="sc0" autocomplete="off"><label class="chip"
+                                            for="sc0">Grocery</label><input type="checkbox" class="btn-check" id="sc1"
+                                            autocomplete="off"><label class="chip" for="sc1">Fresh Produce</label><input
+                                            type="checkbox" class="btn-check" id="sc2" autocomplete="off" checked><label
+                                            class="chip" for="sc2">Clothing</label><input type="checkbox"
+                                            class="btn-check" id="sc3" autocomplete="off"><label class="chip"
+                                            for="sc3">Footwear</label><input type="checkbox" class="btn-check" id="sc4"
+                                            autocomplete="off"><label class="chip" for="sc4">Electronics</label><input
+                                            type="checkbox" class="btn-check" id="sc5" autocomplete="off"><label
+                                            class="chip" for="sc5">Home & Kitchen</label><input type="checkbox"
+                                            class="btn-check" id="sc6" autocomplete="off"><label class="chip"
+                                            for="sc6">Beauty & Care</label><input type="checkbox" class="btn-check"
+                                            id="sc7" autocomplete="off"><label class="chip"
+                                            for="sc7">Stationery</label><input type="checkbox" class="btn-check"
+                                            id="sc8" autocomplete="off"><label class="chip"
+                                            for="sc8">Books</label><input type="checkbox" class="btn-check" id="sc9"
+                                            autocomplete="off"><label class="chip" for="sc9">Bakery</label><input
+                                            type="checkbox" class="btn-check" id="sc10" autocomplete="off"><label
+                                            class="chip" for="sc10">Gifts</label><input type="checkbox"
+                                            class="btn-check" id="sc11" autocomplete="off"><label class="chip"
+                                            for="sc11">Handicrafts</label><input type="checkbox" class="btn-check"
+                                            id="sc12" autocomplete="off"><label class="chip" for="sc12">Local
+                                            Specialties</label></div>
+                                </div>
+                                <div class="col-md-6"><label class="form-label" for="ss-p">Store phone</label><input
+                                        class="form-control" type="tel" id="ss-p" name="ss-p" value="" placeholder=""
+                                        required>
+                                    <div class="invalid-feedback">Enter a phone number.</div>
+                                </div>
+                                <div class="col-md-6"><label class="form-label" for="ss-e">Store email <span
+                                            class=text-muted-cc>(optional)</span></label><input class="form-control"
+                                        type="email" id="ss-e" name="ss-e" value="" placeholder="">
+                                    <div class="invalid-feedback">This field is required.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-step-pane>
+                            <h2 class="h5">Branding</h2>
+                            <div class="row g-3">
+                                <div class="col-md-6"><label class="form-label" for="ss-logo">Shop logo</label>
+                                    <div class="upload-box">
+                                        <div class="upload-prev round" id="ss-logo-prev"><img
+                                                src="../assets/images/shops/bhavna-boutique-logo.svg" alt=Preview></div>
+                                        <div><input class="form-control form-control-sm" type="file" id="ss-logo"
+                                                accept="image/*" data-preview="ss-logo-prev">
+                                            <div class="form-text">Square image, at least 200×200 px</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6"><label class="form-label" for="ss-cover">Cover image</label>
+                                    <div class="upload-box">
+                                        <div class="upload-prev rect" id="ss-cover-prev"><img
+                                                src="../assets/images/shops/bhavna-boutique-cover.svg" alt=Preview>
+                                        </div>
+                                        <div><input class="form-control form-control-sm" type="file" id="ss-cover"
+                                                accept="image/*" data-preview="ss-cover-prev">
+                                            <div class="form-text">Wide image, at least 1200×400 px</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="small text-muted-cc mt-3 mb-0">Photos are previewed in your browser only; nothing
+                                is uploaded in this demo.</p>
+                        </div>
+                        <div data-step-pane>
+                            <h2 class="h5">Opening hours and address</h2>
+                            <div class="table-responsive">
+                                <table class="table align-middle small">
+                                    <thead>
+                                        <tr>
+                                            <th>Day</th>
+                                            <th>Opens</th>
+                                            <th>Closes</th>
+                                            <th>Open?</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Monday</td>
+                                            <td><input class="form-control form-control-sm" type="time" value="10:00"
+                                                    aria-label="Monday opens"></td>
+                                            <td><input class="form-control form-control-sm" type="time" value="20:30"
+                                                    aria-label="Monday closes"></td>
+                                            <td>
+                                                <div class="form-check form-switch"><input class="form-check-input"
+                                                        type="checkbox" role="switch" checked aria-label="Monday open">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tuesday</td>
+                                            <td><input class="form-control form-control-sm" type="time" value="10:00"
+                                                    aria-label="Tuesday opens"></td>
+                                            <td><input class="form-control form-control-sm" type="time" value="20:30"
+                                                    aria-label="Tuesday closes"></td>
+                                            <td>
+                                                <div class="form-check form-switch"><input class="form-check-input"
+                                                        type="checkbox" role="switch" aria-label="Tuesday open"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Wednesday</td>
+                                            <td><input class="form-control form-control-sm" type="time" value="10:00"
+                                                    aria-label="Wednesday opens"></td>
+                                            <td><input class="form-control form-control-sm" type="time" value="20:30"
+                                                    aria-label="Wednesday closes"></td>
+                                            <td>
+                                                <div class="form-check form-switch"><input class="form-check-input"
+                                                        type="checkbox" role="switch" checked
+                                                        aria-label="Wednesday open"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Thursday</td>
+                                            <td><input class="form-control form-control-sm" type="time" value="10:00"
+                                                    aria-label="Thursday opens"></td>
+                                            <td><input class="form-control form-control-sm" type="time" value="20:30"
+                                                    aria-label="Thursday closes"></td>
+                                            <td>
+                                                <div class="form-check form-switch"><input class="form-check-input"
+                                                        type="checkbox" role="switch" checked
+                                                        aria-label="Thursday open"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Friday</td>
+                                            <td><input class="form-control form-control-sm" type="time" value="10:00"
+                                                    aria-label="Friday opens"></td>
+                                            <td><input class="form-control form-control-sm" type="time" value="20:30"
+                                                    aria-label="Friday closes"></td>
+                                            <td>
+                                                <div class="form-check form-switch"><input class="form-check-input"
+                                                        type="checkbox" role="switch" checked aria-label="Friday open">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Saturday</td>
+                                            <td><input class="form-control form-control-sm" type="time" value="10:00"
+                                                    aria-label="Saturday opens"></td>
+                                            <td><input class="form-control form-control-sm" type="time" value="20:30"
+                                                    aria-label="Saturday closes"></td>
+                                            <td>
+                                                <div class="form-check form-switch"><input class="form-check-input"
+                                                        type="checkbox" role="switch" checked
+                                                        aria-label="Saturday open"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sunday</td>
+                                            <td><input class="form-control form-control-sm" type="time" value="10:00"
+                                                    aria-label="Sunday opens"></td>
+                                            <td><input class="form-control form-control-sm" type="time" value="20:30"
+                                                    aria-label="Sunday closes"></td>
+                                            <td>
+                                                <div class="form-check form-switch"><input class="form-check-input"
+                                                        type="checkbox" role="switch" checked aria-label="Sunday open">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row g-3">
+                                <div class="col-12"><label class="form-label" for="ss-a">Shop address</label><textarea
+                                        class="form-control" id="ss-a" name="ss-a" rows="2" placeholder=""
+                                        required>12, Fatehgunj Main Road, Vadodara</textarea>
+                                    <div class="invalid-feedback">This field is required.</div>
+                                </div>
+                                <div class="col-md-6"><label class="form-label" for="ss-l">Locality</label><input
+                                        class="form-control" type="text" id="ss-l" name="ss-l" value="Fatehgunj"
+                                        placeholder="" required>
+                                    <div class="invalid-feedback">This field is required.</div>
+                                </div>
+                                <div class="col-md-6"><label class="form-label" for="ss-c">City</label><select
+                                        class="form-select" id="ss-c" name="ss-c" required>
+                                        <option selected>Vadodara</option>
+                                        <option>Ahmedabad</option>
+                                        <option>Surat</option>
+                                        <option>Jaipur</option>
+                                        <option>Lucknow</option>
+                                        <option>Pune</option>
+                                    </select>
+                                    <div class="invalid-feedback">This field is required.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-step-pane>
+                            <h2 class="h5">Delivery and pickup</h2>
+                            <div class="row g-3">
+                                <div class="col-md-6"><label class="opt-card"><input type="checkbox" checked
+                                            class="form-check-input mt-1"><span><strong>Home delivery</strong><br><span
+                                                class="small text-muted-cc">You or your courier deliver to
+                                                customers</span></span></label></div>
+                                <div class="col-md-6"><label class="opt-card"><input type="checkbox" checked
+                                            class="form-check-input mt-1"><span><strong>Store pickup</strong><br><span
+                                                class="small text-muted-cc">Customers collect from your
+                                                shop</span></span></label></div>
+                                <div class="col-md-4"><label class="form-label" for="fo-r">Delivery
+                                        radius</label><select class="form-select" id="fo-r" name="fo-r" required>
+                                        <option>Within 3 km</option>
+                                        <option>Within 5 km</option>
+                                        <option>Within 10 km</option>
+                                        <option selected>Within city</option>
+                                    </select>
+                                    <div class="invalid-feedback">This field is required.</div>
+                                </div>
+                                <div class="col-md-4"><label class="form-label" for="fo-c">Delivery charge
+                                        (₹)</label><input class="form-control" type="number" id="fo-c" name="fo-c"
+                                        value="40" placeholder="" required min="0">
+                                    <div class="invalid-feedback">This field is required.</div>
+                                </div>
+                                <div class="col-md-4"><label class="form-label" for="fo-f">Free delivery above (₹) <span
+                                            class=text-muted-cc>(optional)</span></label><input class="form-control"
+                                        type="number" id="fo-f" name="fo-f" value="500" placeholder="" min="0">
+                                    <div class="invalid-feedback">This field is required.</div>
+                                </div>
+                            </div>
+                            <div class="alert-card mt-3"><i class="fa-solid fa-circle-info"></i>
+                                <div class="small">After you submit, our team reviews your shop. Approval is decided by
+                                    the platform and cannot be set from this screen.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between"><button type="button" class="btn-cc btn-outline-cc"
+                        data-prev-step>← Back</button>
+                    <div><button type="button" class="btn-cc btn-primary-cc" data-next-step>Continue →</button> <button
+                            class="btn-cc btn-green-cc d-none" id="finish" type="submit">Submit for review</button>
+                    </div>
+                </div>
+                <div class="text-end mt-3" id="submitRow"></div>
+            </form>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="{% static 'js/data.js'%}" defer></script>
+    <script src="{% static 'js/common.js'%}" defer></script>
+    <script src="{% static 'js/panel.js'%}" defer></script>
+    <script src="{% static 'js/seller.js'%}" defer></script>
+</body>
+
+</html>

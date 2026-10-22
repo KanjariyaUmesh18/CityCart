@@ -1,0 +1,29 @@
+/* Seller panel: warm, practical */
+body[data-kind=seller] .side-list a.active {
+    background: var(--cc-green)
+}
+
+body[data-kind=seller] .panel-top {
+    border-top: 3px solid var(--cc-saffron)
+}
+
+
+/* Keep notification category badges uniform */
+#nl > li > .badge-cc.badge-info {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 112px;
+    min-width: 112px;
+    height: 42px;
+
+    padding: 0 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+

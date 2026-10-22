@@ -1,0 +1,1256 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Apna Bazaar, Apne Log · CityCart</title>
+    <meta name="description" content="Discover local shops and products in your city.">
+    <link rel="icon" href="assets/images/logo/citycart-logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/variables.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animations.css' %}">
+    <link rel="stylesheet" href="{% static 'css/panel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/seller.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+</head>
+
+<body class="has-bottom-nav " data-root="" data-kind="customer" data-page="index">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="topbar">Shop Local. Grow Local. Build India.<span class="opacity-75 d-none d-sm-inline"> · Prototype ·
+            sample data only</span></div>
+    <header class="site-header">
+        <div class="container">
+            <div class="row-main">
+                <button class="btn-icon d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu"
+                    aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+                <a class="brand" href="index.html"><img src="assets/images/logo/citycart-logo.svg" alt="" width="36"
+                        height="36"><span class="txt">CityCart<small>Apna Bazaar, Apne Log</small></span></a>
+                <a class="city-btn" href="customer/select-city.html"><i
+                        class="fa-solid fa-location-dot text-success"></i><span data-city-label>Vadodara</span><i
+                        class="fa-solid fa-chevron-down small"></i></a>
+                <form class="header-search" action="customer/search-results.html" role="search">
+                    <div class="input-group"><input class="form-control" name="q" type="search"
+                            placeholder="Search products, categories or shops" aria-label="Search"><button class="btn"
+                            aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button></div>
+                </form>
+                <div class="header-actions">
+                    <a class="btn-cc btn-sm-cc btn-outline-cc d-none d-xl-inline-flex"
+                        href="customer/become-seller.html"><i class="fa-solid fa-store"></i> Sell on CityCart</a>
+                    <a class="btn-icon d-none d-sm-grid" href="customer/wishlist.html" aria-label="Wishlist"><i
+                            class="fa-regular fa-heart"></i><span class="count-dot" data-wish-count hidden>0</span></a>
+                    <a class="btn-icon" href="customer/cart.html" aria-label="Cart"><i
+                            class="fa-solid fa-cart-shopping"></i><span class="count-dot" data-cart-count
+                            hidden>0</span></a>
+                    <a class="btn-icon" href="customer/login.html" data-account-link aria-label="Account"><i
+                            class="fa-regular fa-user"></i></a>
+                </div>
+            </div>
+            <form class="mobile-search" action="customer/search-results.html" role="search">
+                <div class="input-group"><input class="form-control" name="q" type="search"
+                        placeholder="Search products or shops" aria-label="Search"><button
+                        class="btn btn-cc btn-primary-cc" aria-label="Search"><i
+                            class="fa-solid fa-magnifying-glass"></i></button></div>
+            </form>
+        </div>
+        <nav class="cat-nav" aria-label="Categories">
+            <div class="container">
+                <ul>
+                    <li><a href="customer/product-listing.html?q=Grocery">Grocery</a></li>
+                    <li><a href="customer/product-listing.html?q=Clothing">Clothing</a></li>
+                    <li><a href="customer/product-listing.html?q=Footwear">Footwear</a></li>
+                    <li><a href="customer/product-listing.html?q=Home">Home & Kitchen</a></li>
+                    <li><a href="customer/product-listing.html?q=Stationery">Stationery</a></li>
+                    <li><a href="customer/product-listing.html?q=Bakery">Bakery</a></li>
+                    <li><a href="customer/product-listing.html?q=Handicrafts">Handicrafts</a></li>
+                    <li><a href="customer/product-listing.html?q=Gifts">Gifts</a></li>
+                    <li><a href="customer/categories.html" class="fw-semibold">All categories →</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu" aria-labelledby="mmLabel">
+        <div class="offcanvas-header">
+            <h2 class="h5 m-0" id="mmLabel">CityCart</h2><button type="button" class="btn-close"
+                data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body pt-0"><a class="nav-link-cc" href="customer/select-city.html"><i
+                    class="fa-solid fa-location-dot text-success"></i> Change city</a><a class="nav-link-cc"
+                href="customer/explore-shops.html"><i class="fa-solid fa-shop"></i> Explore shops</a><a
+                class="nav-link-cc" href="customer/categories.html"><i class="fa-solid fa-table-cells-large"></i> All
+                categories</a><a class="nav-link-cc" href="customer/wishlist.html"><i class="fa-solid fa-heart"></i>
+                Wishlist</a><a class="nav-link-cc" href="customer/my-orders.html"><i class="fa-solid fa-box"></i> My
+                orders</a><a class="nav-link-cc" href="customer/login.html"><i class="fa-solid fa-user"></i> Login</a><a
+                class="nav-link-cc" href="customer/register.html"><i class="fa-solid fa-user-plus"></i> Create
+                account</a><a class="nav-link-cc" href="customer/become-seller.html"><i class="fa-solid fa-store"></i>
+                Sell on CityCart</a><a class="nav-link-cc" href="customer/support.html"><i
+                    class="fa-solid fa-circle-question"></i> Help & support</a></div>
+    </div>
+    <main id="main">
+        <section class="hero">
+            <div class="container">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-6">
+                        <p class="eyebrow">Apna Bazaar, Apne Log</p>
+                        <h1>Har Kharid Mein <span>Apne Sheher</span> Ki Taqat</h1>
+                        <p class="lead my-3">Discover shops, artisans and family-run businesses in your own city, and
+                            keep your spending where it helps your neighbours most.</p>
+                        <form class="hero-search" action="customer/search-results.html" role="search"><a
+                                class="btn-cc btn-outline-cc" href="customer/select-city.html"><i
+                                    class="fa-solid fa-location-dot"></i> <span
+                                    data-city-label>Vadodara</span></a><input class="form-control" name="q"
+                                type="search" placeholder="Search products or shops"
+                                aria-label="Search products or shops"><button class="btn-cc btn-primary-cc"><i
+                                    class="fa-solid fa-magnifying-glass"></i> Search</button></form>
+                        <div class="d-flex flex-wrap gap-2 mt-3"><a class="btn-cc btn-green-cc"
+                                href="customer/explore-shops.html">Explore Local Shops</a><a
+                                class="btn-cc btn-outline-cc" href="seller/register.html">Register Your Shop</a></div>
+                        <div class="d-flex gap-4 mt-4 flex-wrap">
+                            <div>
+                                <div class="stat">12</div><small class="text-muted-cc">sample shops</small>
+                            </div>
+                            <div>
+                                <div class="stat">42</div><small class="text-muted-cc">sample products</small>
+                            </div>
+                            <div>
+                                <div class="stat">6</div><small class="text-muted-cc">cities listed</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="hero-visual"><img src="assets/images/banners/hero.svg"
+                                alt="A busy Indian neighbourhood bazaar with shop awnings and bunting" width="800"
+                                height="640" decoding="async"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr class="divider-motif">
+        <section class="section-sm">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <p class=eyebrow>Browse</p>
+                        <h2 class="mb-0">Popular categories</h2>
+                    </div><a href="customer/categories.html">All categories →</a>
+                </div>
+                <div class="row g-3">
+                    <div class="col-4 col-md-3 col-lg"><a class="cat-tile"
+                            href="customer/product-listing.html?cat=Grocery"><span class="ico"><i
+                                    class="fa-solid fa-basket-shopping"></i></span><span
+                                class="small fw-medium">Grocery</span></a></div>
+                    <div class="col-4 col-md-3 col-lg"><a class="cat-tile"
+                            href="customer/product-listing.html?cat=Fresh Produce"><span class="ico"><i
+                                    class="fa-solid fa-apple-whole"></i></span><span class="small fw-medium">Fresh
+                                Produce</span></a></div>
+                    <div class="col-4 col-md-3 col-lg"><a class="cat-tile"
+                            href="customer/product-listing.html?cat=Clothing"><span class="ico"><i
+                                    class="fa-solid fa-shirt"></i></span><span
+                                class="small fw-medium">Clothing</span></a></div>
+                    <div class="col-4 col-md-3 col-lg"><a class="cat-tile"
+                            href="customer/product-listing.html?cat=Footwear"><span class="ico"><i
+                                    class="fa-solid fa-shoe-prints"></i></span><span
+                                class="small fw-medium">Footwear</span></a></div>
+                    <div class="col-4 col-md-3 col-lg"><a class="cat-tile"
+                            href="customer/product-listing.html?cat=Electronics"><span class="ico"><i
+                                    class="fa-solid fa-plug"></i></span><span
+                                class="small fw-medium">Electronics</span></a></div>
+                    <div class="col-4 col-md-3 col-lg"><a class="cat-tile"
+                            href="customer/product-listing.html?cat=Home &amp; Kitchen"><span class="ico"><i
+                                    class="fa-solid fa-kitchen-set"></i></span><span class="small fw-medium">Home &
+                                Kitchen</span></a></div>
+                    <div class="col-4 col-md-3 col-lg"><a class="cat-tile"
+                            href="customer/product-listing.html?cat=Beauty &amp; Care"><span class="ico"><i
+                                    class="fa-solid fa-spa"></i></span><span class="small fw-medium">Beauty &
+                                Care</span></a></div>
+                </div>
+            </div>
+        </section>
+        <section class="section-sm">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <p class=eyebrow>Near you</p>
+                        <h2 class="mb-0">Shops in <span data-city-label>Vadodara</span></h2>
+                        <p>Sample listings for demonstration.</p>
+                    </div><a href="customer/explore-shops.html">View all shops →</a>
+                </div>
+                <div class="row g-3">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <article class="cc-card shop-card" data-item data-name="Sharma Kirana &amp; General Store"
+                            data-cat="Grocery" data-price="0" data-rating="4.6" data-open="1" data-city="Vadodara"
+                            data-area="Alkapuri">
+                            <div class="media"><img src="assets/images/shops/sharma-kirana.svg"
+                                    alt="Sharma Kirana &amp; General Store storefront" width="400" height="300"
+                                    loading=lazy decoding="async"><img class="logo-chip"
+                                    src="assets/images/shops/sharma-kirana-logo.svg" alt="" width="44" height="44">
+                            </div>
+                            <div class="body pt-3">
+                                <div class="d-flex justify-content-between gap-2">
+                                    <h3 class="title">Sharma Kirana &amp; General Store</h3><span class="rating"
+                                        aria-label="Rated 4.6 out of 5"><i class="fa-solid fa-star"
+                                            aria-hidden="true"></i> 4.6</span>
+                                </div>
+                                <div class="meta">Staples, spices, pooja items</div>
+                                <div class="meta"><i class="fa-solid fa-location-dot"></i> Alkapuri, Vadodara · Grocery
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="badge-cc badge-open"><i class="fa-solid fa-circle-check"></i> Open
+                                        now</span><a href="customer/shop-details.html?id=sharma-kirana"
+                                        class="btn-cc btn-outline-cc btn-sm-cc">Visit shop</a></div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <article class="cc-card shop-card" data-item data-name="Bhavna Ethnic Boutique"
+                            data-cat="Clothing" data-price="0" data-rating="4.8" data-open="1" data-city="Vadodara"
+                            data-area="Fatehgunj">
+                            <div class="media"><img src="assets/images/shops/bhavna-boutique.svg"
+                                    alt="Bhavna Ethnic Boutique storefront" width="400" height="300" loading=lazy
+                                    decoding="async"><img class="logo-chip"
+                                    src="assets/images/shops/bhavna-boutique-logo.svg" alt="" width="44" height="44">
+                            </div>
+                            <div class="body pt-3">
+                                <div class="d-flex justify-content-between gap-2">
+                                    <h3 class="title">Bhavna Ethnic Boutique</h3><span class="rating"
+                                        aria-label="Rated 4.8 out of 5"><i class="fa-solid fa-star"
+                                            aria-hidden="true"></i> 4.8</span>
+                                </div>
+                                <div class="meta">Handloom sarees, kurtis & block prints</div>
+                                <div class="meta"><i class="fa-solid fa-location-dot"></i> Fatehgunj, Vadodara ·
+                                    Clothing</div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="badge-cc badge-open"><i class="fa-solid fa-circle-check"></i> Open
+                                        now</span><a href="customer/shop-details.html?id=bhavna-boutique"
+                                        class="btn-cc btn-outline-cc btn-sm-cc">Visit shop</a></div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <article class="cc-card shop-card" data-item data-name="Gandhi Footwear House"
+                            data-cat="Footwear" data-price="0" data-rating="4.3" data-open="0" data-city="Vadodara"
+                            data-area="Raopura">
+                            <div class="media"><img src="assets/images/shops/gandhi-footwear.svg"
+                                    alt="Gandhi Footwear House storefront" width="400" height="300" loading=lazy
+                                    decoding="async"><img class="logo-chip"
+                                    src="assets/images/shops/gandhi-footwear-logo.svg" alt="" width="44" height="44">
+                            </div>
+                            <div class="body pt-3">
+                                <div class="d-flex justify-content-between gap-2">
+                                    <h3 class="title">Gandhi Footwear House</h3><span class="rating"
+                                        aria-label="Rated 4.3 out of 5"><i class="fa-solid fa-star"
+                                            aria-hidden="true"></i> 4.3</span>
+                                </div>
+                                <div class="meta">Kolhapuri, mojari & leather footwear</div>
+                                <div class="meta"><i class="fa-solid fa-location-dot"></i> Raopura, Vadodara · Footwear
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="badge-cc badge-closed"><i class="fa-regular fa-clock"></i> Closed
+                                        now</span><a href="customer/shop-details.html?id=gandhi-footwear"
+                                        class="btn-cc btn-outline-cc btn-sm-cc">Visit shop</a></div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <article class="cc-card shop-card" data-item data-name="Kala Kunj Handicrafts"
+                            data-cat="Handicrafts" data-price="0" data-rating="4.9" data-open="1" data-city="Vadodara"
+                            data-area="Manjalpur">
+                            <div class="media"><img src="assets/images/shops/kala-handicrafts.svg"
+                                    alt="Kala Kunj Handicrafts storefront" width="400" height="300" loading=lazy
+                                    decoding="async"><img class="logo-chip"
+                                    src="assets/images/shops/kala-handicrafts-logo.svg" alt="" width="44" height="44">
+                            </div>
+                            <div class="body pt-3">
+                                <div class="d-flex justify-content-between gap-2">
+                                    <h3 class="title">Kala Kunj Handicrafts</h3><span class="rating"
+                                        aria-label="Rated 4.9 out of 5"><i class="fa-solid fa-star"
+                                            aria-hidden="true"></i> 4.9</span>
+                                </div>
+                                <div class="meta">Artisan brassware, pottery, Warli art</div>
+                                <div class="meta"><i class="fa-solid fa-location-dot"></i> Manjalpur, Vadodara ·
+                                    Handicrafts</div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="badge-cc badge-open"><i class="fa-solid fa-circle-check"></i> Open
+                                        now</span><a href="customer/shop-details.html?id=kala-handicrafts"
+                                        class="btn-cc btn-outline-cc btn-sm-cc">Visit shop</a></div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section bg-beige">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow mb-1">Seasonal collections</p>
+                        <h2 class="mb-0">Festive and seasonal picks</h2>
+                    </div>
+                </div>
+                <div class="row g-3">
+                    <div class="col-md-4"><a class="promo-tile text-decoration-none"
+                            href="customer/product-listing.html?q=diya"><img
+                                src="assets/images/banners/promo-diwali.svg" alt="Diwali diyas &amp; gifting"
+                                width="800" height="300" loading=lazy decoding="async">
+                            <div class="txt">
+                                <h3>Diwali diyas & gifting</h3><span class="small text-muted-cc">Hand-painted diyas and
+                                    gift boxes</span>
+                            </div>
+                        </a></div>
+                    <div class="col-md-4"><a class="promo-tile text-decoration-none"
+                            href="customer/product-listing.html?cat=Clothing"><img
+                                src="assets/images/banners/promo-handloom.svg" alt="Handloom &amp; block print"
+                                width="800" height="300" loading=lazy decoding="async">
+                            <div class="txt">
+                                <h3>Handloom & block print</h3><span class="small text-muted-cc">From weavers and
+                                    printers</span>
+                            </div>
+                        </a></div>
+                    <div class="col-md-4"><a class="promo-tile text-decoration-none"
+                            href="customer/product-listing.html?cat=Home%20%26%20Kitchen"><img
+                                src="assets/images/banners/promo-monsoon.svg" alt="Kitchen essentials" width="800"
+                                height="300" loading=lazy decoding="async">
+                            <div class="txt">
+                                <h3>Kitchen essentials</h3><span class="small text-muted-cc">Steel, copper and cast
+                                    iron</span>
+                            </div>
+                        </a></div>
+                </div>
+            </div>
+        </section>
+        <section class="section-sm">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <p class=eyebrow>Made locally</p>
+                        <h2 class="mb-0">Locally made products</h2>
+                        <p>Products from shops that make or commission their own work.</p>
+                    </div><a href="customer/product-listing.html">Browse all →</a>
+                </div>
+                <div class="row g-3">
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <article class="cc-card" data-item data-name="Hand-block Printed Cotton Kurta"
+                            data-cat="Clothing" data-shop="Bhavna Ethnic Boutique" data-price="1299" data-rating="4.1"
+                            data-open="1" data-city="Vadodara" data-maker="1" data-stock="1">
+                            <div class="media"><a href="customer/product-details.html?id=p4" tabindex="-1"
+                                    aria-hidden="true"><img src="assets/images/products/p4.svg"
+                                        alt="Hand-block Printed Cotton Kurta" width="400" height="300" loading=lazy
+                                        decoding="async"></a><span class="badge-cc pill-local">Made
+                                    Locally</span><button class="wish" type="button" data-id="p4" aria-pressed="false"
+                                    aria-label="Save Hand-block Printed Cotton Kurta to wishlist"><i
+                                        class="fa-solid fa-heart"></i></button></div>
+                            <div class="body">
+                                <h3 class="title"><a class="stretch-none"
+                                        href="customer/product-details.html?id=p4">Hand-block Printed Cotton Kurta</a>
+                                </h3>
+                                <div class="meta"><a href="customer/shop-details.html?id=bhavna-boutique"><i
+                                            class="fa-solid fa-store"></i> Bhavna Ethnic Boutique</a> · Fatehgunj</div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="price">₹1,299</span><span class="rating"
+                                        aria-label="Rated 4.1 out of 5"><i class="fa-solid fa-star"
+                                            aria-hidden="true"></i> 4.1</span></div><button
+                                    class="btn-cc btn-green-cc btn-sm-cc mt-2" type="button" data-add-cart="p4"><i
+                                        class="fa-solid fa-cart-plus"></i> Add to cart</button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <article class="cc-card" data-item data-name="Chanderi Silk Dupatta" data-cat="Clothing"
+                            data-shop="Bhavna Ethnic Boutique" data-price="1650" data-rating="4.8" data-open="1"
+                            data-city="Vadodara" data-maker="1" data-stock="1">
+                            <div class="media"><a href="customer/product-details.html?id=p5" tabindex="-1"
+                                    aria-hidden="true"><img src="assets/images/products/p5.svg"
+                                        alt="Chanderi Silk Dupatta" width="400" height="300" loading=lazy
+                                        decoding="async"></a><span class="badge-cc pill-local">Made
+                                    Locally</span><button class="wish" type="button" data-id="p5" aria-pressed="false"
+                                    aria-label="Save Chanderi Silk Dupatta to wishlist"><i
+                                        class="fa-solid fa-heart"></i></button></div>
+                            <div class="body">
+                                <h3 class="title"><a class="stretch-none"
+                                        href="customer/product-details.html?id=p5">Chanderi Silk Dupatta</a></h3>
+                                <div class="meta"><a href="customer/shop-details.html?id=bhavna-boutique"><i
+                                            class="fa-solid fa-store"></i> Bhavna Ethnic Boutique</a> · Fatehgunj</div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="price">₹1,650</span><span class="rating"
+                                        aria-label="Rated 4.8 out of 5"><i class="fa-solid fa-star"
+                                            aria-hidden="true"></i> 4.8</span></div><button
+                                    class="btn-cc btn-green-cc btn-sm-cc mt-2" type="button" data-add-cart="p5"><i
+                                        class="fa-solid fa-cart-plus"></i> Add to cart</button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <article class="cc-card" data-item data-name="Bandhani Cotton Saree" data-cat="Clothing"
+                            data-shop="Bhavna Ethnic Boutique" data-price="2150" data-rating="4.5" data-open="1"
+                            data-city="Vadodara" data-maker="1" data-stock="1">
+                            <div class="media"><a href="customer/product-details.html?id=p6" tabindex="-1"
+                                    aria-hidden="true"><img src="assets/images/products/p6.svg"
+                                        alt="Bandhani Cotton Saree" width="400" height="300" loading=lazy
+                                        decoding="async"></a><span class="badge-cc badge-warn">14% off</span><button
+                                    class="wish" type="button" data-id="p6" aria-pressed="false"
+                                    aria-label="Save Bandhani Cotton Saree to wishlist"><i
+                                        class="fa-solid fa-heart"></i></button></div>
+                            <div class="body">
+                                <h3 class="title"><a class="stretch-none"
+                                        href="customer/product-details.html?id=p6">Bandhani Cotton Saree</a></h3>
+                                <div class="meta"><a href="customer/shop-details.html?id=bhavna-boutique"><i
+                                            class="fa-solid fa-store"></i> Bhavna Ethnic Boutique</a> · Fatehgunj</div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="price">₹2,150<s>₹2,499</s></span><span class="rating"
+                                        aria-label="Rated 4.5 out of 5"><i class="fa-solid fa-star"
+                                            aria-hidden="true"></i> 4.5</span></div><button
+                                    class="btn-cc btn-green-cc btn-sm-cc mt-2" type="button" data-add-cart="p6"><i
+                                        class="fa-solid fa-cart-plus"></i> Add to cart</button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <article class="cc-card" data-item data-name="Cotton Palazzo Pants" data-cat="Clothing"
+                            data-shop="Bhavna Ethnic Boutique" data-price="749" data-rating="4.9" data-open="1"
+                            data-city="Vadodara" data-maker="1" data-stock="1">
+                            <div class="media"><a href="customer/product-details.html?id=p8" tabindex="-1"
+                                    aria-hidden="true"><img src="assets/images/products/p8.svg"
+                                        alt="Cotton Palazzo Pants" width="400" height="300" loading=lazy
+                                        decoding="async"></a><span class="badge-cc pill-local">Made
+                                    Locally</span><button class="wish" type="button" data-id="p8" aria-pressed="false"
+                                    aria-label="Save Cotton Palazzo Pants to wishlist"><i
+                                        class="fa-solid fa-heart"></i></button></div>
+                            <div class="body">
+                                <h3 class="title"><a class="stretch-none"
+                                        href="customer/product-details.html?id=p8">Cotton Palazzo Pants</a></h3>
+                                <div class="meta"><a href="customer/shop-details.html?id=bhavna-boutique"><i
+                                            class="fa-solid fa-store"></i> Bhavna Ethnic Boutique</a> · Fatehgunj</div>
+                                <div><span class="badge-cc badge-warn">Only 3 left</span></div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="price">₹749</span><span class="rating" aria-label="Rated 4.9 out of 5"><i
+                                            class="fa-solid fa-star" aria-hidden="true"></i> 4.9</span></div><button
+                                    class="btn-cc btn-green-cc btn-sm-cc mt-2" type="button" data-add-cart="p8"><i
+                                        class="fa-solid fa-cart-plus"></i> Add to cart</button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <article class="cc-card" data-item data-name="Handloom Gamcha Towel" data-cat="Clothing"
+                            data-shop="Bhavna Ethnic Boutique" data-price="280" data-rating="4.6" data-open="1"
+                            data-city="Vadodara" data-maker="1" data-stock="1">
+                            <div class="media"><a href="customer/product-details.html?id=p9" tabindex="-1"
+                                    aria-hidden="true"><img src="assets/images/products/p9.svg"
+                                        alt="Handloom Gamcha Towel" width="400" height="300" loading=lazy
+                                        decoding="async"></a><span class="badge-cc pill-local">Made
+                                    Locally</span><button class="wish" type="button" data-id="p9" aria-pressed="false"
+                                    aria-label="Save Handloom Gamcha Towel to wishlist"><i
+                                        class="fa-solid fa-heart"></i></button></div>
+                            <div class="body">
+                                <h3 class="title"><a class="stretch-none"
+                                        href="customer/product-details.html?id=p9">Handloom Gamcha Towel</a></h3>
+                                <div class="meta"><a href="customer/shop-details.html?id=bhavna-boutique"><i
+                                            class="fa-solid fa-store"></i> Bhavna Ethnic Boutique</a> · Fatehgunj</div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="price">₹280</span><span class="rating" aria-label="Rated 4.6 out of 5"><i
+                                            class="fa-solid fa-star" aria-hidden="true"></i> 4.6</span></div><button
+                                    class="btn-cc btn-green-cc btn-sm-cc mt-2" type="button" data-add-cart="p9"><i
+                                        class="fa-solid fa-cart-plus"></i> Add to cart</button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <article class="cc-card" data-item data-name="Kids Ethnic Kurta Set" data-cat="Clothing"
+                            data-shop="Bhavna Ethnic Boutique" data-price="899" data-rating="4.3" data-open="1"
+                            data-city="Vadodara" data-maker="1" data-stock="1">
+                            <div class="media"><a href="customer/product-details.html?id=p10" tabindex="-1"
+                                    aria-hidden="true"><img src="assets/images/products/p10.svg"
+                                        alt="Kids Ethnic Kurta Set" width="400" height="300" loading=lazy
+                                        decoding="async"></a><span class="badge-cc pill-local">Made
+                                    Locally</span><button class="wish" type="button" data-id="p10" aria-pressed="false"
+                                    aria-label="Save Kids Ethnic Kurta Set to wishlist"><i
+                                        class="fa-solid fa-heart"></i></button></div>
+                            <div class="body">
+                                <h3 class="title"><a class="stretch-none"
+                                        href="customer/product-details.html?id=p10">Kids Ethnic Kurta Set</a></h3>
+                                <div class="meta"><a href="customer/shop-details.html?id=bhavna-boutique"><i
+                                            class="fa-solid fa-store"></i> Bhavna Ethnic Boutique</a> · Fatehgunj</div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="price">₹899</span><span class="rating" aria-label="Rated 4.3 out of 5"><i
+                                            class="fa-solid fa-star" aria-hidden="true"></i> 4.3</span></div><button
+                                    class="btn-cc btn-green-cc btn-sm-cc mt-2" type="button" data-add-cart="p10"><i
+                                        class="fa-solid fa-cart-plus"></i> Add to cart</button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <article class="cc-card" data-item data-name="Embroidered Cotton Jacket" data-cat="Clothing"
+                            data-shop="Bhavna Ethnic Boutique" data-price="1590" data-rating="4.0" data-open="1"
+                            data-city="Vadodara" data-maker="1" data-stock="1">
+                            <div class="media"><a href="customer/product-details.html?id=p11" tabindex="-1"
+                                    aria-hidden="true"><img src="assets/images/products/p11.svg"
+                                        alt="Embroidered Cotton Jacket" width="400" height="300" loading=lazy
+                                        decoding="async"></a><span class="badge-cc badge-warn">16% off</span><button
+                                    class="wish" type="button" data-id="p11" aria-pressed="false"
+                                    aria-label="Save Embroidered Cotton Jacket to wishlist"><i
+                                        class="fa-solid fa-heart"></i></button></div>
+                            <div class="body">
+                                <h3 class="title"><a class="stretch-none"
+                                        href="customer/product-details.html?id=p11">Embroidered Cotton Jacket</a></h3>
+                                <div class="meta"><a href="customer/shop-details.html?id=bhavna-boutique"><i
+                                            class="fa-solid fa-store"></i> Bhavna Ethnic Boutique</a> · Fatehgunj</div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="price">₹1,590<s>₹1,890</s></span><span class="rating"
+                                        aria-label="Rated 4.0 out of 5"><i class="fa-solid fa-star"
+                                            aria-hidden="true"></i> 4.0</span></div><button
+                                    class="btn-cc btn-green-cc btn-sm-cc mt-2" type="button" data-add-cart="p11"><i
+                                        class="fa-solid fa-cart-plus"></i> Add to cart</button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <article class="cc-card" data-item data-name="Khadi Cotton Shirt" data-cat="Clothing"
+                            data-shop="Bhavna Ethnic Boutique" data-price="1190" data-rating="4.7" data-open="1"
+                            data-city="Vadodara" data-maker="1" data-stock="1">
+                            <div class="media"><a href="customer/product-details.html?id=p12" tabindex="-1"
+                                    aria-hidden="true"><img src="assets/images/products/p12.svg"
+                                        alt="Khadi Cotton Shirt" width="400" height="300" loading=lazy
+                                        decoding="async"></a><span class="badge-cc pill-local">Made
+                                    Locally</span><button class="wish" type="button" data-id="p12" aria-pressed="false"
+                                    aria-label="Save Khadi Cotton Shirt to wishlist"><i
+                                        class="fa-solid fa-heart"></i></button></div>
+                            <div class="body">
+                                <h3 class="title"><a class="stretch-none"
+                                        href="customer/product-details.html?id=p12">Khadi Cotton Shirt</a></h3>
+                                <div class="meta"><a href="customer/shop-details.html?id=bhavna-boutique"><i
+                                            class="fa-solid fa-store"></i> Bhavna Ethnic Boutique</a> · Fatehgunj</div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="price">₹1,190</span><span class="rating"
+                                        aria-label="Rated 4.7 out of 5"><i class="fa-solid fa-star"
+                                            aria-hidden="true"></i> 4.7</span></div><button
+                                    class="btn-cc btn-green-cc btn-sm-cc mt-2" type="button" data-add-cart="p12"><i
+                                        class="fa-solid fa-cart-plus"></i> Add to cart</button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section bg-green-soft">
+            <div class="container">
+                <div class="row g-4 g-lg-5 align-items-center">
+                    <div class="col-lg-5">
+                        <p class="eyebrow">Why local matters</p>
+                        <h2>Every purchase has a neighbourhood address</h2>
+                        <p class="text-muted-cc">When people choose local businesses, spending circulates within the
+                            community and independent shopkeepers get a fairer chance to grow.</p><a
+                            class="btn-cc btn-green-cc" href="customer/about.html">Read our story</a>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="row g-4">
+                            <div class="col-sm-6">
+                                <div class="impact-item"><span class="ico"><i
+                                            class="fa-solid fa-hand-holding-heart"></i></span>
+                                    <div>
+                                        <h3 class="h6 fw-semibold mb-1" style="font-family:var(--cc-font)">Support
+                                            independent owners</h3>
+                                        <p class="small text-muted-cc mb-0">Your order goes to a named local shop.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="impact-item"><span class="ico"><i
+                                            class="fa-solid fa-people-roof"></i></span>
+                                    <div>
+                                        <h3 class="h6 fw-semibold mb-1" style="font-family:var(--cc-font)">Strengthen
+                                            your community</h3>
+                                        <p class="small text-muted-cc mb-0">Local spending creates local opportunity.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="impact-item"><span class="ico"><i class="fa-solid fa-palette"></i></span>
+                                    <div>
+                                        <h3 class="h6 fw-semibold mb-1" style="font-family:var(--cc-font)">Preserve
+                                            craft traditions</h3>
+                                        <p class="small text-muted-cc mb-0">Discover artisans and homegrown makers.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="impact-item"><span class="ico"><i class="fa-solid fa-bolt"></i></span>
+                                    <div>
+                                        <h3 class="h6 fw-semibold mb-1" style="font-family:var(--cc-font)">Nearby
+                                            fulfilment</h3>
+                                        <p class="small text-muted-cc mb-0">Pickup or delivery from shops close to you.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-sm">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <p class=eyebrow>Trending</p>
+                        <h2 class="mb-0">Trending from local shops</h2>
+                    </div><a href="customer/product-listing.html">All products →</a>
+                </div>
+                <div class="row g-3">
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <article class="cc-card" data-item data-name="Cold-pressed Groundnut Oil 1L" data-cat="Grocery"
+                            data-shop="Sharma Kirana &amp; General Store" data-price="320" data-rating="4.0"
+                            data-open="1" data-city="Vadodara" data-maker="0" data-stock="1">
+                            <div class="media"><a href="customer/product-details.html?id=p1" tabindex="-1"
+                                    aria-hidden="true"><img src="assets/images/products/p1.svg"
+                                        alt="Cold-pressed Groundnut Oil 1L" width="400" height="300" loading=lazy
+                                        decoding="async"></a><span class="badge-cc badge-warn">11% off</span><button
+                                    class="wish" type="button" data-id="p1" aria-pressed="false"
+                                    aria-label="Save Cold-pressed Groundnut Oil 1L to wishlist"><i
+                                        class="fa-solid fa-heart"></i></button></div>
+                            <div class="body">
+                                <h3 class="title"><a class="stretch-none"
+                                        href="customer/product-details.html?id=p1">Cold-pressed Groundnut Oil 1L</a>
+                                </h3>
+                                <div class="meta"><a href="customer/shop-details.html?id=sharma-kirana"><i
+                                            class="fa-solid fa-store"></i> Sharma Kirana &amp; General Store</a> ·
+                                    Alkapuri</div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="price">₹320<s>₹360</s></span><span class="rating"
+                                        aria-label="Rated 4.0 out of 5"><i class="fa-solid fa-star"
+                                            aria-hidden="true"></i> 4.0</span></div><button
+                                    class="btn-cc btn-green-cc btn-sm-cc mt-2" type="button" data-add-cart="p1"><i
+                                        class="fa-solid fa-cart-plus"></i> Add to cart</button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <article class="cc-card" data-item data-name="Hand-block Printed Cotton Kurta"
+                            data-cat="Clothing" data-shop="Bhavna Ethnic Boutique" data-price="1299" data-rating="4.1"
+                            data-open="1" data-city="Vadodara" data-maker="1" data-stock="1">
+                            <div class="media"><a href="customer/product-details.html?id=p4" tabindex="-1"
+                                    aria-hidden="true"><img src="assets/images/products/p4.svg"
+                                        alt="Hand-block Printed Cotton Kurta" width="400" height="300" loading=lazy
+                                        decoding="async"></a><span class="badge-cc pill-local">Made
+                                    Locally</span><button class="wish" type="button" data-id="p4" aria-pressed="false"
+                                    aria-label="Save Hand-block Printed Cotton Kurta to wishlist"><i
+                                        class="fa-solid fa-heart"></i></button></div>
+                            <div class="body">
+                                <h3 class="title"><a class="stretch-none"
+                                        href="customer/product-details.html?id=p4">Hand-block Printed Cotton Kurta</a>
+                                </h3>
+                                <div class="meta"><a href="customer/shop-details.html?id=bhavna-boutique"><i
+                                            class="fa-solid fa-store"></i> Bhavna Ethnic Boutique</a> · Fatehgunj</div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="price">₹1,299</span><span class="rating"
+                                        aria-label="Rated 4.1 out of 5"><i class="fa-solid fa-star"
+                                            aria-hidden="true"></i> 4.1</span></div><button
+                                    class="btn-cc btn-green-cc btn-sm-cc mt-2" type="button" data-add-cart="p4"><i
+                                        class="fa-solid fa-cart-plus"></i> Add to cart</button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <article class="cc-card" data-item data-name="Kolhapuri Leather Chappal" data-cat="Footwear"
+                            data-shop="Gandhi Footwear House" data-price="899" data-rating="4.4" data-open="0"
+                            data-city="Vadodara" data-maker="0" data-stock="0">
+                            <div class="media"><a href="customer/product-details.html?id=p13" tabindex="-1"
+                                    aria-hidden="true"><img src="assets/images/products/p13.svg"
+                                        alt="Kolhapuri Leather Chappal" width="400" height="300" loading=lazy
+                                        decoding="async"></a><span class="badge-cc badge-warn">18% off</span><button
+                                    class="wish" type="button" data-id="p13" aria-pressed="false"
+                                    aria-label="Save Kolhapuri Leather Chappal to wishlist"><i
+                                        class="fa-solid fa-heart"></i></button></div>
+                            <div class="body">
+                                <h3 class="title"><a class="stretch-none"
+                                        href="customer/product-details.html?id=p13">Kolhapuri Leather Chappal</a></h3>
+                                <div class="meta"><a href="customer/shop-details.html?id=gandhi-footwear"><i
+                                            class="fa-solid fa-store"></i> Gandhi Footwear House</a> · Raopura</div>
+                                <div><span class="badge-cc badge-closed"><i class="fa-solid fa-circle-xmark"></i> Out of
+                                        stock</span></div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="price">₹899<s>₹1,099</s></span><span class="rating"
+                                        aria-label="Rated 4.4 out of 5"><i class="fa-solid fa-star"
+                                            aria-hidden="true"></i> 4.4</span></div><button
+                                    class="btn-cc btn-outline-cc btn-sm-cc mt-2" type="button" disabled>Notify me ·
+                                    unavailable</button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <article class="cc-card" data-item data-name="Terracotta Planter (Medium)"
+                            data-cat="Handicrafts" data-shop="Kala Kunj Handicrafts" data-price="280" data-rating="4.2"
+                            data-open="1" data-city="Vadodara" data-maker="1" data-stock="1">
+                            <div class="media"><a href="customer/product-details.html?id=p17" tabindex="-1"
+                                    aria-hidden="true"><img src="assets/images/products/p17.svg"
+                                        alt="Terracotta Planter (Medium)" width="400" height="300" loading=lazy
+                                        decoding="async"></a><span class="badge-cc pill-local">Made
+                                    Locally</span><button class="wish" type="button" data-id="p17" aria-pressed="false"
+                                    aria-label="Save Terracotta Planter (Medium) to wishlist"><i
+                                        class="fa-solid fa-heart"></i></button></div>
+                            <div class="body">
+                                <h3 class="title"><a class="stretch-none"
+                                        href="customer/product-details.html?id=p17">Terracotta Planter (Medium)</a></h3>
+                                <div class="meta"><a href="customer/shop-details.html?id=kala-handicrafts"><i
+                                            class="fa-solid fa-store"></i> Kala Kunj Handicrafts</a> · Manjalpur</div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="price">₹280</span><span class="rating" aria-label="Rated 4.2 out of 5"><i
+                                            class="fa-solid fa-star" aria-hidden="true"></i> 4.2</span></div><button
+                                    class="btn-cc btn-green-cc btn-sm-cc mt-2" type="button" data-add-cart="p17"><i
+                                        class="fa-solid fa-cart-plus"></i> Add to cart</button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <article class="cc-card" data-item data-name="Whole Wheat Atta Cookies 250g" data-cat="Bakery"
+                            data-shop="Oven Fresh Bakery" data-price="140" data-rating="4.6" data-open="1"
+                            data-city="Vadodara" data-maker="1" data-stock="0">
+                            <div class="media"><a href="customer/product-details.html?id=p19" tabindex="-1"
+                                    aria-hidden="true"><img src="assets/images/products/p19.svg"
+                                        alt="Whole Wheat Atta Cookies 250g" width="400" height="300" loading=lazy
+                                        decoding="async"></a><span class="badge-cc pill-local">Made
+                                    Locally</span><button class="wish" type="button" data-id="p19" aria-pressed="false"
+                                    aria-label="Save Whole Wheat Atta Cookies 250g to wishlist"><i
+                                        class="fa-solid fa-heart"></i></button></div>
+                            <div class="body">
+                                <h3 class="title"><a class="stretch-none"
+                                        href="customer/product-details.html?id=p19">Whole Wheat Atta Cookies 250g</a>
+                                </h3>
+                                <div class="meta"><a href="customer/shop-details.html?id=oven-fresh"><i
+                                            class="fa-solid fa-store"></i> Oven Fresh Bakery</a> · Karelibaug</div>
+                                <div><span class="badge-cc badge-closed"><i class="fa-solid fa-circle-xmark"></i> Out of
+                                        stock</span></div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="price">₹140</span><span class="rating" aria-label="Rated 4.6 out of 5"><i
+                                            class="fa-solid fa-star" aria-hidden="true"></i> 4.6</span></div><button
+                                    class="btn-cc btn-outline-cc btn-sm-cc mt-2" type="button" disabled>Notify me ·
+                                    unavailable</button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <article class="cc-card" data-item data-name="Seasonal Vegetable Box 5kg"
+                            data-cat="Fresh Produce" data-shop="Green Basket Fresh Produce" data-price="399"
+                            data-rating="4.5" data-open="0" data-city="Vadodara" data-maker="0" data-stock="1">
+                            <div class="media"><a href="customer/product-details.html?id=p26" tabindex="-1"
+                                    aria-hidden="true"><img src="assets/images/products/p26.svg"
+                                        alt="Seasonal Vegetable Box 5kg" width="400" height="300" loading=lazy
+                                        decoding="async"></a><span class="badge-cc pill-local">Local Shop</span><button
+                                    class="wish" type="button" data-id="p26" aria-pressed="false"
+                                    aria-label="Save Seasonal Vegetable Box 5kg to wishlist"><i
+                                        class="fa-solid fa-heart"></i></button></div>
+                            <div class="body">
+                                <h3 class="title"><a class="stretch-none"
+                                        href="customer/product-details.html?id=p26">Seasonal Vegetable Box 5kg</a></h3>
+                                <div class="meta"><a href="customer/shop-details.html?id=green-basket"><i
+                                            class="fa-solid fa-store"></i> Green Basket Fresh Produce</a> · Gotri</div>
+                                <div><span class="badge-cc badge-warn">Only 3 left</span></div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="price">₹399</span><span class="rating" aria-label="Rated 4.5 out of 5"><i
+                                            class="fa-solid fa-star" aria-hidden="true"></i> 4.5</span></div><button
+                                    class="btn-cc btn-green-cc btn-sm-cc mt-2" type="button" data-add-cart="p26"><i
+                                        class="fa-solid fa-cart-plus"></i> Add to cart</button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <article class="cc-card" data-item data-name="Pre-seasoned Iron Tawa 12 inch"
+                            data-cat="Home & Kitchen" data-shop="Patel Home &amp; Kitchen" data-price="690"
+                            data-rating="4.3" data-open="1" data-city="Vadodara" data-maker="0" data-stock="1">
+                            <div class="media"><a href="customer/product-details.html?id=p30" tabindex="-1"
+                                    aria-hidden="true"><img src="assets/images/products/p30.svg"
+                                        alt="Pre-seasoned Iron Tawa 12 inch" width="400" height="300" loading=lazy
+                                        decoding="async"></a><span class="badge-cc pill-local">Local Shop</span><button
+                                    class="wish" type="button" data-id="p30" aria-pressed="false"
+                                    aria-label="Save Pre-seasoned Iron Tawa 12 inch to wishlist"><i
+                                        class="fa-solid fa-heart"></i></button></div>
+                            <div class="body">
+                                <h3 class="title"><a class="stretch-none"
+                                        href="customer/product-details.html?id=p30">Pre-seasoned Iron Tawa 12 inch</a>
+                                </h3>
+                                <div class="meta"><a href="customer/shop-details.html?id=patel-home"><i
+                                            class="fa-solid fa-store"></i> Patel Home &amp; Kitchen</a> · Fatehgunj
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="price">₹690</span><span class="rating" aria-label="Rated 4.3 out of 5"><i
+                                            class="fa-solid fa-star" aria-hidden="true"></i> 4.3</span></div><button
+                                    class="btn-cc btn-green-cc btn-sm-cc mt-2" type="button" data-add-cart="p30"><i
+                                        class="fa-solid fa-cart-plus"></i> Add to cart</button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <article class="cc-card" data-item data-name="Festive Diya Gift Box" data-cat="Gifts"
+                            data-shop="Rang Gifts &amp; Crafts" data-price="550" data-rating="4.5" data-open="1"
+                            data-city="Jaipur" data-maker="1" data-stock="1">
+                            <div class="media"><a href="customer/product-details.html?id=p36" tabindex="-1"
+                                    aria-hidden="true"><img src="assets/images/products/p36.svg"
+                                        alt="Festive Diya Gift Box" width="400" height="300" loading=lazy
+                                        decoding="async"></a><span class="badge-cc pill-local">Made
+                                    Locally</span><button class="wish" type="button" data-id="p36" aria-pressed="false"
+                                    aria-label="Save Festive Diya Gift Box to wishlist"><i
+                                        class="fa-solid fa-heart"></i></button></div>
+                            <div class="body">
+                                <h3 class="title"><a class="stretch-none"
+                                        href="customer/product-details.html?id=p36">Festive Diya Gift Box</a></h3>
+                                <div class="meta"><a href="customer/shop-details.html?id=rang-gifts"><i
+                                            class="fa-solid fa-store"></i> Rang Gifts &amp; Crafts</a> · Johari Bazaar
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="price">₹550</span><span class="rating" aria-label="Rated 4.5 out of 5"><i
+                                            class="fa-solid fa-star" aria-hidden="true"></i> 4.5</span></div><button
+                                    class="btn-cc btn-green-cc btn-sm-cc mt-2" type="button" data-add-cart="p36"><i
+                                        class="fa-solid fa-cart-plus"></i> Add to cart</button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-sm">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <p class=eyebrow>Just in</p>
+                        <h2 class="mb-0">New arrivals</h2>
+                    </div><a href="customer/product-listing.html?q=">See more →</a>
+                </div>
+                <div class="row g-3">
+                    <div class="col-6 col-md-3 col-lg-2">
+                        <article class="cc-card" data-item data-name="Kumkumadi Face Oil 30ml" data-cat="Beauty & Care"
+                            data-shop="Herbal Glow Naturals" data-price="890" data-rating="4.2" data-open="1"
+                            data-city="Surat" data-maker="1" data-stock="0">
+                            <div class="media"><a href="customer/product-details.html?id=p37" tabindex="-1"
+                                    aria-hidden="true"><img src="assets/images/products/p37.svg"
+                                        alt="Kumkumadi Face Oil 30ml" width="400" height="300" loading=lazy
+                                        decoding="async"></a><span class="badge-cc pill-local">Made
+                                    Locally</span><button class="wish" type="button" data-id="p37" aria-pressed="false"
+                                    aria-label="Save Kumkumadi Face Oil 30ml to wishlist"><i
+                                        class="fa-solid fa-heart"></i></button></div>
+                            <div class="body">
+                                <h3 class="title"><a class="stretch-none"
+                                        href="customer/product-details.html?id=p37">Kumkumadi Face Oil 30ml</a></h3>
+                                <div class="meta"><a href="customer/shop-details.html?id=herbal-glow"><i
+                                            class="fa-solid fa-store"></i> Herbal Glow Naturals</a> · Adajan</div>
+                                <div><span class="badge-cc badge-closed"><i class="fa-solid fa-circle-xmark"></i> Out of
+                                        stock</span></div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="price">₹890</span><span class="rating" aria-label="Rated 4.2 out of 5"><i
+                                            class="fa-solid fa-star" aria-hidden="true"></i> 4.2</span></div><button
+                                    class="btn-cc btn-outline-cc btn-sm-cc mt-2" type="button" disabled>Notify me ·
+                                    unavailable</button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2">
+                        <article class="cc-card" data-item data-name="Neem &amp; Tulsi Soap (Pack of 3)"
+                            data-cat="Beauty & Care" data-shop="Herbal Glow Naturals" data-price="210" data-rating="4.9"
+                            data-open="1" data-city="Surat" data-maker="1" data-stock="1">
+                            <div class="media"><a href="customer/product-details.html?id=p38" tabindex="-1"
+                                    aria-hidden="true"><img src="assets/images/products/p38.svg"
+                                        alt="Neem &amp; Tulsi Soap (Pack of 3)" width="400" height="300" loading=lazy
+                                        decoding="async"></a><span class="badge-cc pill-local">Made
+                                    Locally</span><button class="wish" type="button" data-id="p38" aria-pressed="false"
+                                    aria-label="Save Neem &amp; Tulsi Soap (Pack of 3) to wishlist"><i
+                                        class="fa-solid fa-heart"></i></button></div>
+                            <div class="body">
+                                <h3 class="title"><a class="stretch-none"
+                                        href="customer/product-details.html?id=p38">Neem &amp; Tulsi Soap (Pack of
+                                        3)</a></h3>
+                                <div class="meta"><a href="customer/shop-details.html?id=herbal-glow"><i
+                                            class="fa-solid fa-store"></i> Herbal Glow Naturals</a> · Adajan</div>
+                                <div><span class="badge-cc badge-warn">Only 3 left</span></div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="price">₹210</span><span class="rating" aria-label="Rated 4.9 out of 5"><i
+                                            class="fa-solid fa-star" aria-hidden="true"></i> 4.9</span></div><button
+                                    class="btn-cc btn-green-cc btn-sm-cc mt-2" type="button" data-add-cart="p38"><i
+                                        class="fa-solid fa-cart-plus"></i> Add to cart</button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2">
+                        <article class="cc-card" data-item data-name="Amla Hair Oil 200ml" data-cat="Beauty & Care"
+                            data-shop="Herbal Glow Naturals" data-price="175" data-rating="4.6" data-open="1"
+                            data-city="Surat" data-maker="1" data-stock="1">
+                            <div class="media"><a href="customer/product-details.html?id=p39" tabindex="-1"
+                                    aria-hidden="true"><img src="assets/images/products/p39.svg"
+                                        alt="Amla Hair Oil 200ml" width="400" height="300" loading=lazy
+                                        decoding="async"></a><span class="badge-cc pill-local">Made
+                                    Locally</span><button class="wish" type="button" data-id="p39" aria-pressed="false"
+                                    aria-label="Save Amla Hair Oil 200ml to wishlist"><i
+                                        class="fa-solid fa-heart"></i></button></div>
+                            <div class="body">
+                                <h3 class="title"><a class="stretch-none"
+                                        href="customer/product-details.html?id=p39">Amla Hair Oil 200ml</a></h3>
+                                <div class="meta"><a href="customer/shop-details.html?id=herbal-glow"><i
+                                            class="fa-solid fa-store"></i> Herbal Glow Naturals</a> · Adajan</div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="price">₹175</span><span class="rating" aria-label="Rated 4.6 out of 5"><i
+                                            class="fa-solid fa-star" aria-hidden="true"></i> 4.6</span></div><button
+                                    class="btn-cc btn-green-cc btn-sm-cc mt-2" type="button" data-add-cart="p39"><i
+                                        class="fa-solid fa-cart-plus"></i> Add to cart</button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2">
+                        <article class="cc-card" data-item data-name="Premchand Short Stories (Hindi)" data-cat="Books"
+                            data-shop="Granthalaya Books" data-price="220" data-rating="4.3" data-open="1"
+                            data-city="Lucknow" data-maker="0" data-stock="1">
+                            <div class="media"><a href="customer/product-details.html?id=p40" tabindex="-1"
+                                    aria-hidden="true"><img src="assets/images/products/p40.svg"
+                                        alt="Premchand Short Stories (Hindi)" width="400" height="300" loading=lazy
+                                        decoding="async"></a><span class="badge-cc pill-local">Local Shop</span><button
+                                    class="wish" type="button" data-id="p40" aria-pressed="false"
+                                    aria-label="Save Premchand Short Stories (Hindi) to wishlist"><i
+                                        class="fa-solid fa-heart"></i></button></div>
+                            <div class="body">
+                                <h3 class="title"><a class="stretch-none"
+                                        href="customer/product-details.html?id=p40">Premchand Short Stories (Hindi)</a>
+                                </h3>
+                                <div class="meta"><a href="customer/shop-details.html?id=granthalaya"><i
+                                            class="fa-solid fa-store"></i> Granthalaya Books</a> · Hazratganj</div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="price">₹220</span><span class="rating" aria-label="Rated 4.3 out of 5"><i
+                                            class="fa-solid fa-star" aria-hidden="true"></i> 4.3</span></div><button
+                                    class="btn-cc btn-green-cc btn-sm-cc mt-2" type="button" data-add-cart="p40"><i
+                                        class="fa-solid fa-cart-plus"></i> Add to cart</button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2">
+                        <article class="cc-card" data-item data-name="Panchatantra Illustrated Tales" data-cat="Books"
+                            data-shop="Granthalaya Books" data-price="299" data-rating="4.0" data-open="1"
+                            data-city="Lucknow" data-maker="0" data-stock="1">
+                            <div class="media"><a href="customer/product-details.html?id=p41" tabindex="-1"
+                                    aria-hidden="true"><img src="assets/images/products/p41.svg"
+                                        alt="Panchatantra Illustrated Tales" width="400" height="300" loading=lazy
+                                        decoding="async"></a><span class="badge-cc pill-local">Local Shop</span><button
+                                    class="wish" type="button" data-id="p41" aria-pressed="false"
+                                    aria-label="Save Panchatantra Illustrated Tales to wishlist"><i
+                                        class="fa-solid fa-heart"></i></button></div>
+                            <div class="body">
+                                <h3 class="title"><a class="stretch-none"
+                                        href="customer/product-details.html?id=p41">Panchatantra Illustrated Tales</a>
+                                </h3>
+                                <div class="meta"><a href="customer/shop-details.html?id=granthalaya"><i
+                                            class="fa-solid fa-store"></i> Granthalaya Books</a> · Hazratganj</div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="price">₹299</span><span class="rating" aria-label="Rated 4.0 out of 5"><i
+                                            class="fa-solid fa-star" aria-hidden="true"></i> 4.0</span></div><button
+                                    class="btn-cc btn-green-cc btn-sm-cc mt-2" type="button" data-add-cart="p41"><i
+                                        class="fa-solid fa-cart-plus"></i> Add to cart</button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2">
+                        <article class="cc-card" data-item data-name="Pocket Bhagavad Gita (Hindi)" data-cat="Books"
+                            data-shop="Granthalaya Books" data-price="150" data-rating="4.7" data-open="1"
+                            data-city="Lucknow" data-maker="0" data-stock="1">
+                            <div class="media"><a href="customer/product-details.html?id=p42" tabindex="-1"
+                                    aria-hidden="true"><img src="assets/images/products/p42.svg"
+                                        alt="Pocket Bhagavad Gita (Hindi)" width="400" height="300" loading=lazy
+                                        decoding="async"></a><span class="badge-cc pill-local">Local Shop</span><button
+                                    class="wish" type="button" data-id="p42" aria-pressed="false"
+                                    aria-label="Save Pocket Bhagavad Gita (Hindi) to wishlist"><i
+                                        class="fa-solid fa-heart"></i></button></div>
+                            <div class="body">
+                                <h3 class="title"><a class="stretch-none"
+                                        href="customer/product-details.html?id=p42">Pocket Bhagavad Gita (Hindi)</a>
+                                </h3>
+                                <div class="meta"><a href="customer/shop-details.html?id=granthalaya"><i
+                                            class="fa-solid fa-store"></i> Granthalaya Books</a> · Hazratganj</div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="price">₹150</span><span class="rating" aria-label="Rated 4.7 out of 5"><i
+                                            class="fa-solid fa-star" aria-hidden="true"></i> 4.7</span></div><button
+                                    class="btn-cc btn-green-cc btn-sm-cc mt-2" type="button" data-add-cart="p42"><i
+                                        class="fa-solid fa-cart-plus"></i> Add to cart</button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-sm">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <p class=eyebrow>Loved by customers</p>
+                        <h2 class="mb-0">Top-rated merchants</h2>
+                        <p>Ratings are sample data.</p>
+                    </div><a href="customer/explore-shops.html">All shops →</a>
+                </div>
+                <div class="row g-3">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <article class="cc-card shop-card" data-item data-name="Kala Kunj Handicrafts"
+                            data-cat="Handicrafts" data-price="0" data-rating="4.9" data-open="1" data-city="Vadodara"
+                            data-area="Manjalpur">
+                            <div class="media"><img src="assets/images/shops/kala-handicrafts.svg"
+                                    alt="Kala Kunj Handicrafts storefront" width="400" height="300" loading=lazy
+                                    decoding="async"><img class="logo-chip"
+                                    src="assets/images/shops/kala-handicrafts-logo.svg" alt="" width="44" height="44">
+                            </div>
+                            <div class="body pt-3">
+                                <div class="d-flex justify-content-between gap-2">
+                                    <h3 class="title">Kala Kunj Handicrafts</h3><span class="rating"
+                                        aria-label="Rated 4.9 out of 5"><i class="fa-solid fa-star"
+                                            aria-hidden="true"></i> 4.9</span>
+                                </div>
+                                <div class="meta">Artisan brassware, pottery, Warli art</div>
+                                <div class="meta"><i class="fa-solid fa-location-dot"></i> Manjalpur, Vadodara ·
+                                    Handicrafts</div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="badge-cc badge-open"><i class="fa-solid fa-circle-check"></i> Open
+                                        now</span><a href="customer/shop-details.html?id=kala-handicrafts"
+                                        class="btn-cc btn-outline-cc btn-sm-cc">Visit shop</a></div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <article class="cc-card shop-card" data-item data-name="Bhavna Ethnic Boutique"
+                            data-cat="Clothing" data-price="0" data-rating="4.8" data-open="1" data-city="Vadodara"
+                            data-area="Fatehgunj">
+                            <div class="media"><img src="assets/images/shops/bhavna-boutique.svg"
+                                    alt="Bhavna Ethnic Boutique storefront" width="400" height="300" loading=lazy
+                                    decoding="async"><img class="logo-chip"
+                                    src="assets/images/shops/bhavna-boutique-logo.svg" alt="" width="44" height="44">
+                            </div>
+                            <div class="body pt-3">
+                                <div class="d-flex justify-content-between gap-2">
+                                    <h3 class="title">Bhavna Ethnic Boutique</h3><span class="rating"
+                                        aria-label="Rated 4.8 out of 5"><i class="fa-solid fa-star"
+                                            aria-hidden="true"></i> 4.8</span>
+                                </div>
+                                <div class="meta">Handloom sarees, kurtis & block prints</div>
+                                <div class="meta"><i class="fa-solid fa-location-dot"></i> Fatehgunj, Vadodara ·
+                                    Clothing</div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="badge-cc badge-open"><i class="fa-solid fa-circle-check"></i> Open
+                                        now</span><a href="customer/shop-details.html?id=bhavna-boutique"
+                                        class="btn-cc btn-outline-cc btn-sm-cc">Visit shop</a></div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <article class="cc-card shop-card" data-item data-name="Rang Gifts &amp; Crafts"
+                            data-cat="Gifts" data-price="0" data-rating="4.7" data-open="1" data-city="Jaipur"
+                            data-area="Johari Bazaar">
+                            <div class="media"><img src="assets/images/shops/rang-gifts.svg"
+                                    alt="Rang Gifts &amp; Crafts storefront" width="400" height="300" loading=lazy
+                                    decoding="async"><img class="logo-chip"
+                                    src="assets/images/shops/rang-gifts-logo.svg" alt="" width="44" height="44"></div>
+                            <div class="body pt-3">
+                                <div class="d-flex justify-content-between gap-2">
+                                    <h3 class="title">Rang Gifts &amp; Crafts</h3><span class="rating"
+                                        aria-label="Rated 4.7 out of 5"><i class="fa-solid fa-star"
+                                            aria-hidden="true"></i> 4.7</span>
+                                </div>
+                                <div class="meta">Blue pottery, mirror-work, festive gifts</div>
+                                <div class="meta"><i class="fa-solid fa-location-dot"></i> Johari Bazaar, Jaipur · Gifts
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="badge-cc badge-open"><i class="fa-solid fa-circle-check"></i> Open
+                                        now</span><a href="customer/shop-details.html?id=rang-gifts"
+                                        class="btn-cc btn-outline-cc btn-sm-cc">Visit shop</a></div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <article class="cc-card shop-card" data-item data-name="Sharma Kirana &amp; General Store"
+                            data-cat="Grocery" data-price="0" data-rating="4.6" data-open="1" data-city="Vadodara"
+                            data-area="Alkapuri">
+                            <div class="media"><img src="assets/images/shops/sharma-kirana.svg"
+                                    alt="Sharma Kirana &amp; General Store storefront" width="400" height="300"
+                                    loading=lazy decoding="async"><img class="logo-chip"
+                                    src="assets/images/shops/sharma-kirana-logo.svg" alt="" width="44" height="44">
+                            </div>
+                            <div class="body pt-3">
+                                <div class="d-flex justify-content-between gap-2">
+                                    <h3 class="title">Sharma Kirana &amp; General Store</h3><span class="rating"
+                                        aria-label="Rated 4.6 out of 5"><i class="fa-solid fa-star"
+                                            aria-hidden="true"></i> 4.6</span>
+                                </div>
+                                <div class="meta">Staples, spices, pooja items</div>
+                                <div class="meta"><i class="fa-solid fa-location-dot"></i> Alkapuri, Vadodara · Grocery
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto pt-2"><span
+                                        class="badge-cc badge-open"><i class="fa-solid fa-circle-check"></i> Open
+                                        now</span><a href="customer/shop-details.html?id=sharma-kirana"
+                                        class="btn-cc btn-outline-cc btn-sm-cc">Visit shop</a></div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section bg-beige">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow mb-1">For shopkeepers</p>
+                        <h2 class="mb-0">Bring your shop online in four steps</h2>
+                    </div>
+                </div>
+                <div class="row g-3">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="cc-card p-3 h-100"><span class="step-num mb-2">1</span>
+                            <h3 class="h6" style="font-family:var(--cc-font)">Register</h3>
+                            <p class="small text-muted-cc mb-0">Tell us about your business and city.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="cc-card p-3 h-100"><span class="step-num mb-2">2</span>
+                            <h3 class="h6" style="font-family:var(--cc-font)">Set up your shop</h3>
+                            <p class="small text-muted-cc mb-0">Add your logo, hours and fulfilment options.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="cc-card p-3 h-100"><span class="step-num mb-2">3</span>
+                            <h3 class="h6" style="font-family:var(--cc-font)">Get verified</h3>
+                            <p class="small text-muted-cc mb-0">Our team reviews your details (demo flow).</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="cc-card p-3 h-100"><span class="step-num mb-2">4</span>
+                            <h3 class="h6" style="font-family:var(--cc-font)">List products</h3>
+                            <p class="small text-muted-cc mb-0">Add products and start managing orders.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-sm">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <h2 class="mb-0">What customers say</h2>
+                    </div><span class="demo-note">Sample testimonials, not real reviews</span>
+                </div>
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <figure class="testimonial m-0">
+                            <blockquote class="mb-2">Sample: I found a family-run sweet shop I never knew existed two
+                                lanes away.</blockquote>
+                            <figcaption class="d-flex align-items-center gap-2"><img class="thumb round"
+                                    src="assets/images/avatars/a1.svg" alt="" width="36" height="36"><span
+                                    class="small fw-semibold">Sample Customer A <span class="text-muted-cc fw-normal">·
+                                        Vadodara</span></span></figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-md-4">
+                        <figure class="testimonial m-0">
+                            <blockquote class="mb-2">Sample: Pickup from my local kirana was ready in under an hour.
+                            </blockquote>
+                            <figcaption class="d-flex align-items-center gap-2"><img class="thumb round"
+                                    src="assets/images/avatars/a2.svg" alt="" width="36" height="36"><span
+                                    class="small fw-semibold">Sample Customer B <span class="text-muted-cc fw-normal">·
+                                        Ahmedabad</span></span></figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-md-4">
+                        <figure class="testimonial m-0">
+                            <blockquote class="mb-2">Sample: Loved discovering handloom work by local weavers.
+                            </blockquote>
+                            <figcaption class="d-flex align-items-center gap-2"><img class="thumb round"
+                                    src="assets/images/avatars/a4.svg" alt="" width="36" height="36"><span
+                                    class="small fw-semibold">Sample Customer C <span class="text-muted-cc fw-normal">·
+                                        Surat</span></span></figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-sm">
+            <div class="container">
+                <div class="cta-band">
+                    <div class="row align-items-center g-3">
+                        <div class="col-lg-8">
+                            <p class="eyebrow text-warning mb-1">Join CityCart</p>
+                            <h2>Run a shop? Reach customers in your city.</h2>
+                            <p class="mb-0 opacity-75">List products, manage orders and see how your business is doing.
+                                Fees and terms are shown transparently at registration.</p>
+                        </div>
+                        <div class="col-lg-4 text-lg-end"><a class="btn-cc btn-primary-cc"
+                                href="seller/register.html">Register Your Shop</a> <a
+                                class="btn-cc btn-outline-cc bg-white mt-2 mt-lg-0"
+                                href="customer/become-seller.html">Learn more</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-12 col-lg-4 footer-brand"><a class="brand" href="index.html"><img
+                            src="assets/images/logo/citycart-logo.svg" alt="" width="36" height="36"><span
+                            class="txt">CityCart<small>Apna Bazaar, Apne Log</small></span></a>
+                    <p class="mt-3 small">A local-commerce platform for the shops, artisans and family businesses in our
+                        cities. Every local purchase keeps opportunity in the neighbourhood.</p>
+                    <p class="small mb-1"><i class="fa-solid fa-envelope"></i> hello@citycart.example (placeholder)</p>
+                    <p class="small mb-0"><i class="fa-solid fa-phone"></i> 1800-XXX-XXXX (placeholder)</p>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h4>Customer</h4>
+                    <ul>
+                        <li><a href="customer/support.html">Help & support</a></li>
+                        <li><a href="customer/my-orders.html">My orders</a></li>
+                        <li><a href="customer/shipping-policy.html">Shipping & delivery</a></li>
+                        <li><a href="customer/refund-policy.html">Returns & refunds</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h4>Shop by</h4>
+                    <ul>
+                        <li><a href="customer/categories.html">All categories</a></li>
+                        <li><a href="customer/explore-shops.html">Local shops</a></li>
+                        <li><a href="customer/product-listing.html">All products</a></li>
+                        <li><a href="customer/select-city.html">Change city</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h4>Merchants</h4>
+                    <ul>
+                        <li><a href="customer/become-seller.html">Become a seller</a></li>
+                        <li><a href="seller/register.html">Register your shop</a></li>
+                        <li><a href="seller/login.html">Seller login</a></li>
+                        <li><a href="customer/seller-terms.html">Seller terms</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="customer/about.html">About CityCart</a></li>
+                        <li><a href="customer/contact.html">Contact</a></li>
+                        <li><a href="customer/privacy-policy.html">Privacy policy</a></li>
+                        <li><a href="customer/terms.html">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom"><span>© 2026 CityCart (prototype). Contact details are
+                    placeholders.</span><span>Shop Local. Grow Local. Build India. <a href="customer/contact.html"
+                        aria-label="Follow us (social links are placeholders)" class="ms-2"><i
+                            class="fa-brands fa-instagram"></i></a> <a href="customer/contact.html"
+                        aria-label="Facebook" class="ms-2"><i class="fa-brands fa-facebook"></i></a></span></div>
+        </div>
+    </footer>
+    <nav class="bottom-nav" aria-label="Quick navigation"><a href="index.html" class="active" aria-current=page><i
+                class="fa-solid fa-house"></i>Home</a><a href="customer/explore-shops.html" class=""><i
+                class="fa-solid fa-shop"></i>Shops</a><a href="customer/categories.html" class=""><i
+                class="fa-solid fa-table-cells-large"></i>Categories</a><a href="customer/cart.html" class=""><i
+                class="fa-solid fa-cart-shopping"></i>Cart</a><a href="customer/profile.html" class=""><i
+                class="fa-solid fa-user"></i>Account</a></nav>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="{% static 'js/data.js'%}" defer></script>
+    <script src="{% static 'js/common.js'%}" defer></script>
+    <script src="{% static 'js/customer.js'%}" defer></script>
+</body>
+
+</html>

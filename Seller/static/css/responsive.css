@@ -1,0 +1,23 @@
+@media(max-width:575.98px) {
+  .section {
+    padding: var(--sp-6) 0
+  }
+
+  .auth-card {
+    padding: var(--sp-5)
+  }
+
+  .footer-bottom {
+    flex-direction: column
+  }
+
+  .table-responsive-cc {
+    overflow-x: auto
+  }
+}
+
+@media(min-width:1400px) {
+  .container {
+    max-width: 1280px
+  }
+}
