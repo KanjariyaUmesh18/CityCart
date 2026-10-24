@@ -46,7 +46,7 @@
                 <div class="auth-card" style="max-width:620px"><a class="small d-lg-none" href="../index.html">←
                         CityCart home</a>
                     <h1 class="h3 mt-2">Register your shop</h1>
-                    <form  novalidate data-success="Account created (demo)" data-next="shop-setup.html">
+                    <form  action="{% url 'register' %}">
                         <div class="row g-3">
                             <div class="col-12">
                                 <h2 class="h6 text-uppercase text-muted-cc">Owner details</h2>
@@ -88,24 +88,46 @@
                                     required>
                                 <div class="invalid-feedback">This field is required.</div>
                             </div>
-                            <div class="col-md-6"><label class="form-label" for="r-cat">Business category</label><select
-                                    class="form-select" id="r-cat" name="r-cat" required>
-                                    <option>Grocery</option>
-                                    <option>Fresh Produce</option>
-                                    <option>Clothing</option>
-                                    <option>Footwear</option>
-                                    <option>Electronics</option>
-                                    <option>Home & Kitchen</option>
-                                    <option>Beauty & Care</option>
-                                    <option>Stationery</option>
-                                    <option>Books</option>
-                                    <option>Bakery</option>
-                                    <option>Gifts</option>
-                                    <option>Handicrafts</option>
-                                    <option>Local Specialties</option>
+                            
+                            <div class="col-md-6">
+                                <label class="form-label" for="r-cat">
+                                    Business category
+                                </label>
+
+                                <select class="form-select" id="r-cat" name="r-cat" required>
+                                    <option value="">Select Category</option>
+                                    <option value="Grocery">Grocery</option>
+                                    <option value="Fresh Produce">Fresh Produce</option>
+                                    <option value="Clothing">Clothing</option>
+                                    <option value="Footwear">Footwear</option>
+                                    <option value="Electronics">Electronics</option>
+                                    <option value="Home & Kitchen">Home & Kitchen</option>
+                                    <option value="Beauty & Care">Beauty & Care</option>
+                                    <option value="Stationery">Stationery</option>
+                                    <option value="Books">Books</option>
+                                    <option value="Bakery">Bakery</option>
+                                    <option value="Gifts">Gifts</option>
+                                    <option value="Handicrafts">Handicrafts</option>
+                                    <option value="Local Specialties">Local Specialties</option>
+                                    <option value="Other">Other</option>
                                 </select>
-                                <div class="invalid-feedback">This field is required.</div>
+
+                                <div id="custom-category-box" class="mt-2" hidden>
+                                    <label for="custom-category" class="form-label">
+                                        Enter your business category
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="custom-category"
+                                        name="custom_category"
+                                        placeholder="e.g. Mobile Repair Shop"
+                                        maxlength="100"
+                                    >
+                                </div>
                             </div>
+
                             <div class="col-md-6"><label class="form-label" for="r-city">City</label><select
                                     class="form-select" id="r-city" name="r-city" required>
                                     <option>Vadodara</option>
@@ -133,13 +155,13 @@
                                 <div class=form-text>Shown to customers if you choose</div>
                                 <div class="invalid-feedback">This field is required.</div>
                             </div>
-                            <div class="col-12">
+                            <!-- <div class="col-12">
                                 <div class="alert-card"><i class="fa-solid fa-folder-open"></i>
                                     <div class="small"><strong>Documents for verification (later)</strong><br>We may ask
                                         for ID proof, business address proof and, where applicable, GST or food-licence
                                         details. <em>This prototype does not collect any documents.</em></div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-12">
                                 <div class="form-check"><input class="form-check-input" type="checkbox" id="r-t"
                                         required><label class="form-check-label small" for="r-t">I agree to the <a
@@ -164,5 +186,22 @@
     <script src="{% static 'js/panel.js'%}" defer></script>
     <script src="{% static 'js/seller.js'%}" defer></script>
 </body>
+<script>
+    
+const category = document.getElementById("r-cat");
+const customBox = document.getElementById("custom-category-box");
+const customInput = document.getElementById("custom-category");
 
+category.addEventListener("change", function () {
+    const isOther = this.value === "Other";
+
+    customBox.hidden = !isOther;
+    customInput.required = isOther;
+
+    if (!isOther) {
+        customInput.value = "";
+    }
+});
+
+</script>
 </html>
