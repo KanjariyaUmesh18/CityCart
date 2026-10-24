@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from .urls import *
-
-# Create your views here.
-
+from .models import register as Registermodel
 def dashboard(request):
     return render(request,"Seller/dashboard.html")
 
@@ -40,7 +38,36 @@ def products(request):
     return render(request,"Seller/products.html")
 
 def register(request):
-    return render(request,"Seller/register.html")
+    if request.POST:
+        ownername = request.POST['ownername']
+        ownernumber = request.POST['mobilenumber']
+        email = request.POST['email']
+        password = request.POST['password']
+        businesname = request.POST['businesname']
+        businescategory = request.POST['businescategory']
+        city = request.POST['city']
+        locality = request.POST['locality']
+        address = request.POST['address']
+        shopnumber = request.POST['shopnumber']
+
+        rid = Registermodel.objects.create(
+            owner_fullname = ownername,
+            owner_number = ownernumber,
+            email = email,
+            password = password,
+            business_name = businesname,
+            business_category = businescategory,
+            city = city,
+            locality = locality,
+            business_address = address,
+            shop_contact = shopnumber
+        )
+
+        print(rid)
+
+        return render(request,"Seller/login.html")
+    else:
+        return render(request,"Seller/register.html")
 
 def reset_password(request):
     return render(request,"Seller/reset-password.html")

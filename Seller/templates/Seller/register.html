@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Register your shop · CityCart</title>
+    <title>register your shop · CityCart</title>
     <meta name="description" content="CityCart – Apna Bazaar, Apne Log. Shop local, grow local.">
     <link rel="icon" href="{% static 'assest/logo/citycart-logo.svg' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,37 +46,39 @@
                 <div class="auth-card" style="max-width:620px"><a class="small d-lg-none" href="../index.html">←
                         CityCart home</a>
                     <h1 class="h3 mt-2">Register your shop</h1>
-                    <form  action="{% url 'register' %}">
+                    <form action="{% url 'register' %}" method="POST">
+                        {% csrf_token %}
                         <div class="row g-3">
                             <div class="col-12">
                                 <h2 class="h6 text-uppercase text-muted-cc">Owner details</h2>
                             </div>
                             <div class="col-md-6"><label class="form-label" for="r-owner">Owner full name</label><input
-                                    class="form-control" type="text" id="r-owner" name="r-owner" value="" placeholder=""
-                                    required>
+                                    class="form-control" type="text" id="r-owner" name="ownername" value=""
+                                    placeholder="" required>
                                 <div class="invalid-feedback">This field is required.</div>
                             </div>
                             <div class="col-md-6"><label class="form-label" for="r-mob">Mobile number</label><input
-                                    class="form-control" type="tel" id="r-mob" name="r-mob" value="" placeholder=""
-                                    required pattern="[6-9][0-9]{9}">
+                                    class="form-control" type="tel" id="r-mob" name="mobilenumber" value=""
+                                    placeholder="" required pattern="[6-9][0-9]{9}">
                                 <div class="invalid-feedback">Enter a 10-digit mobile number.</div>
                             </div>
                             <div class="col-12"><label class="form-label" for="r-em">Email</label><input
-                                    class="form-control" type="email" id="r-em" name="r-em" value="" placeholder=""
+                                    class="form-control" type="email" id="r-em" name="email" value="" placeholder=""
                                     required>
                                 <div class="invalid-feedback">Enter a valid email.</div>
                             </div>
                             <div class="col-md-6"><label class="form-label" for="r-pw">Password</label>
-                                <div class="pw-wrap"><input class="form-control" type="password" id="r-pw" name="r-pw"
-                                        required data-strong="1" autocomplete="new-password"><button type="button"
-                                        class="pw-toggle" data-target="r-pw" aria-label="Show password"><i
+                                <div class="pw-wrap"><input class="form-control" type="password" id="r-pw"
+                                        name="password" required data-strong="1" autocomplete="new-password"><button
+                                        type="button" class="pw-toggle" data-target="r-pw" aria-label="Show password"><i
                                             class="fa-regular fa-eye"></i></button></div>
                                 <div class="invalid-feedback">Use at least 8 characters.</div>
                             </div>
                             <div class="col-md-6"><label class="form-label" for="r-pw2">Confirm password</label>
-                                <div class="pw-wrap"><input class="form-control" type="password" id="r-pw2" name="r-pw2"
-                                        required data-match="r-pw" autocomplete="new-password"><button type="button"
-                                        class="pw-toggle" data-target="r-pw2" aria-label="Show password"><i
+                                <div class="pw-wrap"><input class="form-control" type="password" id="r-pw2"
+                                        name="confirmpassword" required data-match="r-pw"
+                                        autocomplete="new-password"><button type="button" class="pw-toggle"
+                                        data-target="r-pw2" aria-label="Show password"><i
                                             class="fa-regular fa-eye"></i></button></div>
                                 <div class="invalid-feedback">Passwords do not match.</div>
                             </div>
@@ -84,17 +86,17 @@
                                 <h2 class="h6 text-uppercase text-muted-cc mt-2">Business details</h2>
                             </div>
                             <div class="col-md-6"><label class="form-label" for="r-bn">Business name</label><input
-                                    class="form-control" type="text" id="r-bn" name="r-bn" value="" placeholder=""
-                                    required>
+                                    class="form-control" type="text" id="r-bn" name="businesname" value=""
+                                    placeholder="" required>
                                 <div class="invalid-feedback">This field is required.</div>
                             </div>
-                            
+
                             <div class="col-md-6">
                                 <label class="form-label" for="r-cat">
                                     Business category
                                 </label>
 
-                                <select class="form-select" id="r-cat" name="r-cat" required>
+                                <select class="form-select" id="r-cat" name="businescategory" required>
                                     <option value="">Select Category</option>
                                     <option value="Grocery">Grocery</option>
                                     <option value="Fresh Produce">Fresh Produce</option>
@@ -117,19 +119,13 @@
                                         Enter your business category
                                     </label>
 
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        id="custom-category"
-                                        name="custom_category"
-                                        placeholder="e.g. Mobile Repair Shop"
-                                        maxlength="100"
-                                    >
+                                    <input type="text" class="form-control" id="custom-category" name="custom_category"
+                                        placeholder="e.g. Mobile Repair Shop" maxlength="100">
                                 </div>
                             </div>
 
                             <div class="col-md-6"><label class="form-label" for="r-city">City</label><select
-                                    class="form-select" id="r-city" name="r-city" required>
+                                    class="form-select" id="r-city" name="city" required>
                                     <option>Vadodara</option>
                                     <option>Ahmedabad</option>
                                     <option>Surat</option>
@@ -140,18 +136,18 @@
                                 <div class="invalid-feedback">This field is required.</div>
                             </div>
                             <div class="col-md-6"><label class="form-label" for="r-loc">Locality</label><input
-                                    class="form-control" type="text" id="r-loc" name="r-loc" value="" placeholder=""
+                                    class="form-control" type="text" id="r-loc" name="locality" value="" placeholder=""
                                     required>
                                 <div class="invalid-feedback">This field is required.</div>
                             </div>
                             <div class="col-12"><label class="form-label" for="r-addr">Business address</label><textarea
-                                    class="form-control" id="r-addr" name="r-addr" rows="2" placeholder=""
+                                    class="form-control" id="r-addr" name="address" rows="2" placeholder=""
                                     required></textarea>
                                 <div class="invalid-feedback">This field is required.</div>
                             </div>
                             <div class="col-md-6"><label class="form-label" for="r-sp">Shop phone <span
                                         class=text-muted-cc>(optional)</span></label><input class="form-control"
-                                    type="tel" id="r-sp" name="r-sp" value="" placeholder="">
+                                    type="tel" id="r-sp" name="shopnumber" value="" placeholder="">
                                 <div class=form-text>Shown to customers if you choose</div>
                                 <div class="invalid-feedback">This field is required.</div>
                             </div>
@@ -174,7 +170,8 @@
                                     account</button></div>
                         </div>
                     </form>
-                    <p class="small text-center mt-3 mb-0">Already registered? <a href="{% url 'login' %}">Seller login</a></p>
+                    <p class="small text-center mt-3 mb-0">Already registered? <a href="{% url 'login' %}">Seller
+                            login</a></p>
                 </div>
             </div>
         </div>
@@ -187,21 +184,22 @@
     <script src="{% static 'js/seller.js'%}" defer></script>
 </body>
 <script>
-    
-const category = document.getElementById("r-cat");
-const customBox = document.getElementById("custom-category-box");
-const customInput = document.getElementById("custom-category");
 
-category.addEventListener("change", function () {
-    const isOther = this.value === "Other";
+    const category = document.getElementById("r-cat");
+    const customBox = document.getElementById("custom-category-box");
+    const customInput = document.getElementById("custom-category");
 
-    customBox.hidden = !isOther;
-    customInput.required = isOther;
+    category.addEventListener("change", function () {
+        const isOther = this.value === "Other";
 
-    if (!isOther) {
-        customInput.value = "";
-    }
-});
+        customBox.hidden = !isOther;
+        customInput.required = isOther;
+
+        if (!isOther) {
+            customInput.value = "";
+        }
+    });
 
 </script>
+
 </html>

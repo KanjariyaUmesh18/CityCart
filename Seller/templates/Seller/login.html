@@ -47,7 +47,6 @@
                         CityCart home</a>
                     <h1 class="h3 mt-2">Seller login</h1>
                     <p class="text-muted-cc">Sign in to manage your shop.</p>
-                    <p class="demo-note mb-3">Prototype: no real authentication or verification happens here.</p>
                     <form data-validate novalidate data-success="Signed in (demo)" data-next="dashboard.html">
                         <div class="mb-3"><label class="form-label" for="sl-id">Email or mobile number</label><input
                                 class="form-control" type="text" id="sl-id" name="sl-id" value="" placeholder=""
@@ -67,7 +66,8 @@
                                 href="forgot-password.html">Forgot password?</a>
                         </div><button class="btn-cc btn-primary-cc w-100">Sign in</button>
                     </form>
-                    <p class="small text-center mt-3 mb-0">New seller? <a href="{% url 'register'%}">Register your shop</a> ·
+                    <p class="small text-center mt-3 mb-0">New seller? <a href="{% url 'register'%}">register your
+                            shop</a> ·
                         <a href="{% url 'login' %}">Customer login</a>
                     </p>
                 </div>
