@@ -43,10 +43,10 @@
                         width="400" height="300" loading=lazy decoding="async"></div>
             </div>
             <div class="form-side">
-                <div class="auth-card" style="max-width:620px"><a class="small d-lg-none" href="../index.html">←
+                <div class="auth-card" style="max-width:620px"><a class="small d-lg-none" href="{% url 'index' %}">←
                         CityCart home</a>
                     <h1 class="h3 mt-2">Register your shop</h1>
-                    <form action="{% url 'register' %}" method="POST">
+                    <form method="POST" action="{% url 'register' %}" >
                         {% csrf_token %}
                         <div class="row g-3">
                             <div class="col-12">
@@ -65,14 +65,22 @@
                             <div class="col-12"><label class="form-label" for="r-em">Email</label><input
                                     class="form-control" type="email" id="r-em" name="email" value="" placeholder=""
                                     required>
-                                <div class="invalid-feedback">Enter a valid email.</div>
+                                    {% if email_errors %}
+                                        <div style="color: red; font-size: 14px;">
+                                            {{ email_errors }}
+                                        </div>
+                                    {% endif %}
                             </div>
                             <div class="col-md-6"><label class="form-label" for="r-pw">Password</label>
                                 <div class="pw-wrap"><input class="form-control" type="password" id="r-pw"
                                         name="password" required data-strong="1" autocomplete="new-password"><button
                                         type="button" class="pw-toggle" data-target="r-pw" aria-label="Show password"><i
                                             class="fa-regular fa-eye"></i></button></div>
-                                <div class="invalid-feedback">Use at least 8 characters.</div>
+                                {% if pass_error %}
+                                     <p style="color: red; font-size: 14px; margin-top: 5px;">
+                                        {{ pass_error }}
+                                    </p>
+                                {% endif %}
                             </div>
                             <div class="col-md-6"><label class="form-label" for="r-pw2">Confirm password</label>
                                 <div class="pw-wrap"><input class="form-control" type="password" id="r-pw2"
@@ -166,7 +174,7 @@
                                     <div class="invalid-feedback">Please accept to continue.</div>
                                 </div>
                             </div>
-                            <div class="col-12"><button class="btn-cc btn-primary-cc w-100">Create seller
+                            <div class="col-12"><button class="btn-cc btn-primary-cc w-100" type="submit">Create seller
                                     account</button></div>
                         </div>
                     </form>

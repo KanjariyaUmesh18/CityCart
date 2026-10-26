@@ -39,10 +39,19 @@ def products(request):
 
 def register(request):
     if request.POST:
+        errors = {}
         ownername = request.POST['ownername']
         ownernumber = request.POST['mobilenumber']
         email = request.POST['email']
         password = request.POST['password']
+        if Registermodel.objects.filter(email=email).exists():
+            errors['email_errors'] = "Email already Exists"
+        if len(password) < 8:
+            errors['pass_error'] = "Password Must Be Contain 8 charcters"
+
+        if errors:
+            return render(request,"Seller/register.html",errors)
+        
         businesname = request.POST['businesname']
         businescategory = request.POST['businescategory']
         city = request.POST['city']
