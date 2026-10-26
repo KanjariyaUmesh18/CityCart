@@ -59,8 +59,13 @@
                             </div>
                             <div class="col-md-6"><label class="form-label" for="r-mob">Mobile number</label><input
                                     class="form-control" type="tel" id="r-mob" name="mobilenumber" value=""
-                                    placeholder="" required pattern="[6-9][0-9]{9}">
-                                <div class="invalid-feedback">Enter a 10-digit mobile number.</div>
+                                    placeholder="" required >
+                                {% if len_numbers%}
+                                <div style="color: red; font-size: 14px;">{{len_numbers}}</div>
+                                {% endif %}
+                                {% if numeber_errors%}
+                                <div style="color: red; font-size: 14px;">{{numeber_errors}}</div>
+                                {% endif %}
                             </div>
                             <div class="col-12"><label class="form-label" for="r-em">Email</label><input
                                     class="form-control" type="email" id="r-em" name="email" value="" placeholder=""

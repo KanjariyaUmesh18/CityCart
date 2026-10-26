@@ -7,8 +7,7 @@ class register(models.Model):
     owner_number = models.CharField(max_length=10,unique=True)
     email = models.EmailField(unique=True,max_length=30)
     password = models.CharField(max_length=12)
-
-
+    confirm_password = models.CharField(max_length=12,null=True)
     business_name = models.CharField(max_length=100)
     business_category = models.CharField(max_length=40)
     city = models.CharField(max_length=40)

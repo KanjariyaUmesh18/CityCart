@@ -44,20 +44,23 @@ def register(request):
         ownernumber = request.POST['mobilenumber']
         email = request.POST['email']
         password = request.POST['password']
-        if Registermodel.objects.filter(email=email).exists():
-            errors['email_errors'] = "Email already Exists"
-        if len(password) < 8:
-            errors['pass_error'] = "Password Must Be Contain 8 charcters"
-
-        if errors:
-            return render(request,"Seller/register.html",errors)
-        
         businesname = request.POST['businesname']
         businescategory = request.POST['businescategory']
         city = request.POST['city']
         locality = request.POST['locality']
         address = request.POST['address']
         shopnumber = request.POST['shopnumber']
+
+        if Registermodel.objects.filter(email=email).exists():
+                    errors['email_errors'] = "Email already Exists"
+        if len(password) < 8:
+            errors['pass_error'] = "Password Must Be Contain 8 charcters"
+        if Registermodel.objects.filter(owner_number=ownernumber).exists():
+            errors['numeber_errors'] = "Your number is Already registerd"
+        if len(ownernumber) != 10 or ownernumber.isdigit():
+            errors['len_numbers'] = "Enter 10 Digit Number"
+        if errors:
+            return render(request,"Seller/register.html",errors)
 
         rid = Registermodel.objects.create(
             owner_fullname = ownername,
