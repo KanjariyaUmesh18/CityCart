@@ -1,6 +1,5 @@
 {% load static %}
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +22,6 @@
     <link rel="stylesheet" href="{% static 'css/seller.css' %}">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
 </head>
-
 <body class=" " data-root="../" data-kind="seller" data-page="login">
     <main id="main">
         <div class="auth-split">
@@ -52,14 +50,16 @@
                         <div class="mb-3"><label class="form-label" for="sl-id">Email or mobile number</label><input
                                 class="form-control" type="text" id="sl-id" name="login_email" value="" placeholder=""
                                 required>
-                            <div class="invalid-feedback">Enter your email or mobile number.</div>
+                            <div class="invalid-feedback">Enter your email or mobile number</div>
                         </div>
                         <div class="mb-3"><label class="form-label" for="sl-pw">Password</label>
                             <div class="pw-wrap"><input class="form-control" type="password" id="sl-pw" name="login_password"
                                     required autocomplete="new-password"><button type="button" class="pw-toggle"
                                     data-target="sl-pw" aria-label="Show password"><i
                                         class="fa-regular fa-eye"></i></button></div>
-                            <div class="invalid-feedback">Enter your password.</div>
+                            {% if error %}
+                            <div style="color: red; font-size: 14px; margin-top: 5px;">{{error}}</div>
+                            {% endif %}
                         </div>
                         <div class="d-flex justify-content-between mb-3">
                             <div class="form-check"><input class="form-check-input" type="checkbox" id="sl-r"><label

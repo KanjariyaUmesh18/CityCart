@@ -18,3 +18,5 @@ class register(models.Model):
     def __str__(self):
         return f"{self.owner_fullname} + {self.business_name}"
 
+
+

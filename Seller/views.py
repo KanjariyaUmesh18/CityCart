@@ -45,6 +45,7 @@ def register(request):
         return render(request,"Seller/register.html")
 
 def login(request):
+    login_errors = {}
     if "log_email" in request.session:
                 return render(request,"Seller/dashboard.html")
     if request.POST:
@@ -52,7 +53,9 @@ def login(request):
             log_passwod = request.POST['login_password']        
             uid = Registermodel.objects.get(email=log_email)
             if uid.password != log_passwod:
-                return render(request,"Seller/login.html")
+                login_errors['error'] = "Your password is incorrect"
+                print(login_errors)
+                return render(request,"Seller/login.html",login_errors)
             request.session['log_email'] = log_email 
             return redirect('dashboard')
 
