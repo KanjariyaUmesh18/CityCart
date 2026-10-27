@@ -1,8 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .urls import *
 from .models import register as Registermodel
 from .models import *
-
 
 def register(request):
     if request.POST:
@@ -41,9 +40,6 @@ def register(request):
             business_address = address,
             shop_contact = shopnumber
         )
-
-        print(rid)
-
         return render(request,"Seller/login.html")
     else:
         return render(request,"Seller/register.html")
@@ -58,7 +54,7 @@ def login(request):
             if uid.password != log_passwod:
                 return render(request,"Seller/login.html")
             request.session['log_email'] = log_email 
-            return render(request,"Seller/dashboard.html")
+            return redirect('dashboard')
 
     return render(request,"Seller/login.html")
 
@@ -70,7 +66,16 @@ def logout(request):
          return render(request,"Seller/login.html")
 
 def dashboard(request):
-    return render(request,"Seller/dashboard.html")
+    if 'log_email' in request.session:
+         uid = Registermodel.objects.get(email=request.session['log_email'])
+
+         context = {
+              'uid' : uid
+         }
+
+         print(uid.email)
+         print(uid.owner_fullname)
+    return render(request,"Seller/dashboard.html",context)
 
 def add_product(request):
     return render(request,"Seller/add-product.html")
