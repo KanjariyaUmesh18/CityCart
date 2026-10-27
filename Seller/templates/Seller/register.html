@@ -59,7 +59,7 @@
                             </div>
                             <div class="col-md-6"><label class="form-label" for="r-mob">Mobile number</label><input
                                     class="form-control" type="tel" id="r-mob" name="mobilenumber" value=""
-                                    placeholder="" required >
+                                    placeholder="" required pattern="[6-9][0-9]{9}">
                                 {% if len_numbers%}
                                 <div style="color: red; font-size: 14px;">{{len_numbers}}</div>
                                 {% endif %}

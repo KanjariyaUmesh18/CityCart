@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from .urls import *
 from .models import register as Registermodel
+from .models import *
+
+
 def dashboard(request):
     return render(request,"Seller/dashboard.html")
 
@@ -57,7 +60,7 @@ def register(request):
             errors['pass_error'] = "Password Must Be Contain 8 charcters"
         if Registermodel.objects.filter(owner_number=ownernumber).exists():
             errors['numeber_errors'] = "Your number is Already registerd"
-        if len(ownernumber) != 10 or ownernumber.isdigit():
+        if len(ownernumber) != 10 or not ownernumber.isdigit():
             errors['len_numbers'] = "Enter 10 Digit Number"
         if errors:
             return render(request,"Seller/register.html",errors)
