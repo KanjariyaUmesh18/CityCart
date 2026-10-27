@@ -26,7 +26,25 @@ def inventory(request):
     return render(request,"Seller/inventory.html")
 
 def login(request):
+    if "log_email" in request.session:
+                return render(request,"Seller/dashboard.html")
+    if request.POST:
+            log_email = request.POST['login_email']
+            log_passwod = request.POST['login_password']        
+            uid = Registermodel.objects.get(email=log_email)
+            if uid.password != log_passwod:
+                return render(request,"Seller/login.html")
+            request.session['log_email'] = log_email 
+            return render(request,"Seller/dashboard.html")
+
     return render(request,"Seller/login.html")
+
+def logout(request):
+    if "log_email" in request.session:
+     del request.session['log_email']
+     return render(request,"Seller/login.html")
+    else:
+         return render(request,"Seller/login.html")
 
 def notifications(request):
     return render(request,"Seller/notifications.html")
