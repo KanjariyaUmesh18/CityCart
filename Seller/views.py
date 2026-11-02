@@ -85,7 +85,7 @@ def add_product(request):
     if "log_email" in request.session:
         return render(request,"Seller/add-product.html")
     else:
-         return render(request,"Seller/login.html   ")
+         return render(request,"Seller/login.html")
 
 def analytics(request):
     return render(request,'Seller/analytics.html')

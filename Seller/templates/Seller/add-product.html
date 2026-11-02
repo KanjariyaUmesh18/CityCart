@@ -74,8 +74,8 @@
                 </ul>
             </nav>
             <div class="side-foot"><img src="../assets/images/avatars/a6.svg" alt="" width="36" height="36">
-                <div><strong>Bhavna Patel</strong><small>Bhavna Ethnic Boutique</small></div><a href="login.html"
-                    class="btn-icon ms-auto" aria-label="Sign out" title="Sign out (demo)"><i
+                <div><strong>Bhavna Patel</strong><small>Bhavna Ethnic Boutique</small></div><a href="{% url 'login' %}"
+                    class="btn-icon ms-auto" aria-label="Sign out"><i
                         class="fa-solid fa-right-from-bracket"></i></a>
             </div>
         </aside>
@@ -89,7 +89,7 @@
                         class="form-control" type="search" placeholder="Search this page…"
                         aria-label="Search this page"></form>
                 <div class="ms-auto d-flex align-items-center gap-2"><a
-                        class="btn-cc btn-sm-cc btn-outline-cc d-none d-md-inline-flex" href="../index.html"
+                        class="btn-cc btn-sm-cc btn-outline-cc d-none d-md-inline-flex" href="{% url 'index' %}"
                         target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> View
                         site</a><a class="btn-icon" href="{% url 'notifications' %}" aria-label="Notifications"><i
                             class="fa-regular fa-bell"></i><span class="count-dot">3</span></a></div>
@@ -101,11 +101,10 @@
                         <p>Create a new listing.</p>
                     </div>
                     <div class="page-actions"><a class="btn-cc btn-outline-cc btn-sm-cc" href="{% url 'products' %}">←
-                            All
-                            products</a></div>
+                            All products</a></div>
                 </div>
-                <form data-validate novalidate data-success="Product saved (demo, not stored)"
-                    data-next="products.html">
+                <form method="POST" action="{% url 'add-product' %}">
+                {% csrf_token %}
                     <div class="row g-3">
                         <div class="col-lg-8">
                             <section class="pcard ">
@@ -119,13 +118,13 @@
                                     <div class="row g-3">
                                         <div class="col-12"><label class="form-label" for="pf-name">Product
                                                 name</label><input class="form-control" type="text" id="pf-name"
-                                                name="pf-name" value="" placeholder="e.g. Block-print cotton kurta"
+                                                name="product_name" value="" placeholder="e.g. Block-print cotton kurta"
                                                 required>
                                             <div class="invalid-feedback">This field is required.</div>
                                         </div>
                                         <div class="col-md-6"><label class="form-label"
                                                 for="pf-cat">Category</label><select class="form-select" id="pf-cat"
-                                                name="pf-cat" required>
+                                                name="product_category" required>
                                                 <option>Grocery</option>
                                                 <option>Fresh Produce</option>
                                                 <option selected>Clothing</option>
