@@ -18,14 +18,19 @@ class user(models.Model):
     def __str__(self):
         return f"{self.owner_fullname} + {self.business_name}"
 
-# class Addproduct(models.Model):
-#     user_id = models.ForeignKey(user,on_delete=models.CASCADE,blank=True,null=True)
-#     product_name = models.CharField(max_length=40)
-#     product_category = models.CharField(max_length=40)
-#     brand = models.CharField(max_length=40,blank=True,null=True)
-#     description = models.TextField()
-#     product_image = models.ImageField(upload_to="images/")
-#     selling_price = models.IntegerField()
-#     comparison_price = models.IntegerField()
-#     stock_qty = models.IntegerField()
+class Addproduct(models.Model):
+    user_id = models.ForeignKey(user,on_delete=models.CASCADE,blank=True,null=True)
+    product_name = models.CharField(max_length=40)
+    product_category = models.CharField(max_length=40)
+    brand = models.CharField(max_length=40,blank=True,null=True)
+    description = models.TextField()
+    product_image = models.ImageField(upload_to="images/")
+    selling_price = models.IntegerField()
+    comparison_price = models.IntegerField(blank=True,null=True)
+    stock_qty = models.IntegerField()
+    sku = models.CharField(max_length=20,blank=True,null=True)
+
+    def __str__(self):
+        return self.product_name
+
 
