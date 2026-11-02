@@ -2,12 +2,12 @@ from django.db import models
 
 # Create your models here.
 
-class register(models.Model):
+class user(models.Model):
     owner_fullname = models.CharField(max_length=30)
     owner_number = models.CharField(max_length=10,unique=True)
     email = models.EmailField(unique=True,max_length=30)
     password = models.CharField(max_length=12)
-    confirm_password = models.CharField(max_length=12,null=True)
+    confirm_password = models.CharField(max_length=12)
     business_name = models.CharField(max_length=100)
     business_category = models.CharField(max_length=40)
     city = models.CharField(max_length=40)
@@ -19,7 +19,7 @@ class register(models.Model):
         return f"{self.owner_fullname} + {self.business_name}"
 
 # class Addproduct(models.Model):
-#     user_id = models.ForeignKey(register,on_delete=models.CASCADE,blank=True,null=True)
+#     user_id = models.ForeignKey(user,on_delete=models.CASCADE,blank=True,null=True)
 #     product_name = models.CharField(max_length=40)
 #     product_category = models.CharField(max_length=40)
 #     brand = models.CharField(max_length=40,blank=True,null=True)

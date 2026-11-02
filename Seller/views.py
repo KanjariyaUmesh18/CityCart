@@ -1,6 +1,5 @@
 from django.shortcuts import render,redirect
 from .urls import *
-from .models import register as Registermodel
 from .models import *
 
 def register(request):
@@ -10,6 +9,7 @@ def register(request):
         ownernumber = request.POST['mobilenumber']
         email = request.POST['email']
         password = request.POST['password']
+        confirmpassword = request.POST['confirmpassword']
         businesname = request.POST['businesname']
         businescategory = request.POST['businescategory']
         city = request.POST['city']
@@ -17,22 +17,23 @@ def register(request):
         address = request.POST['address']
         shopnumber = request.POST['shopnumber']
 
-        if Registermodel.objects.filter(email=email).exists():
+        if user.objects.filter(email=email).exists():
                     errors['email_errors'] = "Email already Exists"
         if len(password) < 8:
             errors['pass_error'] = "Password Must Be Contain 8 charcters"
-        if Registermodel.objects.filter(owner_number=ownernumber).exists():
+        if user.objects.filter(owner_number=ownernumber).exists():
             errors['numeber_errors'] = "Your number is Already registerd"
         if len(ownernumber) != 10 or not ownernumber.isdigit():
             errors['len_numbers'] = "Enter 10 Digit Number"
         if errors:
             return render(request,"Seller/register.html",errors)
 
-        rid = Registermodel.objects.create(
+        rid = user.objects.create(
             owner_fullname = ownername,
             owner_number = ownernumber,
             email = email,
             password = password,
+            confirm_password = confirmpassword,
             business_name = businesname,
             business_category = businescategory,
             city = city,
@@ -51,7 +52,7 @@ def login(request):
     if request.POST:
             log_email = request.POST['login_email']
             log_passwod = request.POST['login_password']        
-            uid = Registermodel.objects.get(email=log_email)
+            uid = user.objects.get(email=log_email)
             if uid.password != log_passwod:
                 login_errors['error'] = "Your password is incorrect"
                 print(login_errors)
@@ -70,7 +71,7 @@ def logout(request):
 
 def dashboard(request):
     if 'log_email' in request.session:
-         uid = Registermodel.objects.get(email=request.session['log_email'])
+         uid = user.objects.get(email=request.session['log_email'])
 
          context = {
               'uid' : uid
