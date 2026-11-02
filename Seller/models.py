@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 class user(models.Model):
     owner_fullname = models.CharField(max_length=30)
     owner_number = models.CharField(max_length=10,unique=True)
@@ -32,5 +30,14 @@ class Addproduct(models.Model):
 
     def __str__(self):
         return self.product_name
+
+class Variants(models.Model):
+    product = models.ForeignKey(Addproduct,on_delete=models.CASCADE,blank=True,null=True)
+    variants_option = models.CharField(max_length=30)
+    variants_stock = models.IntegerField()
+    variants_price = models.IntegerField()
+
+    def __str__(self):
+        return self.variants_option
 
 

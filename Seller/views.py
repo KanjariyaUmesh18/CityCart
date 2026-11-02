@@ -82,7 +82,10 @@ def dashboard(request):
     return render(request,"Seller/dashboard.html",context)
 
 def add_product(request):
-    return render(request,"Seller/add-product.html")
+    if "log_email" in request.session:
+        return render(request,"Seller/add-product.html")
+    else:
+         return render(request,"Seller/login.html   ")
 
 def analytics(request):
     return render(request,'Seller/analytics.html')
