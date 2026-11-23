@@ -71,15 +71,14 @@ def logout(request):
 
 def dashboard(request):
     if 'log_email' in request.session:
-         uid = user.objects.get(email=request.session['log_email'])
-
-         context = {
-              'uid' : uid
-         }
-
-         print(uid.email)
-         print(uid.owner_fullname)
-    return render(request,"Seller/dashboard.html",context)
+        uid = user.objects.get(email=request.session['log_email'])
+        context = {
+             'uid' : uid
+        }
+        print(uid.email)
+        print(uid.owner_fullname)
+        return render(request,"Seller/dashboard.html",context)
+    return render(request,"Seller/dashboard.html")
 
 def add_product(request):
     if "log_email" in request.session:
