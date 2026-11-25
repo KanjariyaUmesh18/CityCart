@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .urls import *
 from .models import *
+from django.contrib.auth.models import User
 
 def register(request):
     if request.POST:
@@ -101,10 +102,6 @@ def forgot_password(request):
 def inventory(request):
     return render(request,"Seller/inventory.html")
 
-
-
-
-
 def notifications(request):
     return render(request,"Seller/notifications.html")
 
@@ -115,6 +112,13 @@ def orders(request):
     return render(request,"Seller/orders.html")
 
 def products(request):
+    if "log_email" in request.session:
+        product = Addproduct.objects.all()
+        context = {
+             "product" : product
+        }
+        return render(request,"Seller/products.html",context)
+        
     return render(request,"Seller/products.html")
 
 

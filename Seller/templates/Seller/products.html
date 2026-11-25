@@ -128,11 +128,12 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {% for p in product %}
                             <tr data-status="Live">
                                 <td data-label="Product">
                                     <div class="cell-flex"><img class="thumb" src="../assets/images/products/p4.svg"
                                             alt="Hand-block Printed Cotton Kurta" width="44" height="44" loading="lazy">
-                                        <div><strong>Hand-block Printed Cotton Kurta</strong><small>SKU BB-P4</small>
+                                        <div><strong>{{p.product_name}}</strong><small>SKU BB-P4</small>
                                         </div>
                                     </div>
                                 </td>
@@ -152,191 +153,7 @@
                                             Delete</button></div>
                                 </td>
                             </tr>
-                            <tr data-status="Live">
-                                <td data-label="Product">
-                                    <div class="cell-flex"><img class="thumb" src="../assets/images/products/p5.svg"
-                                            alt="Chanderi Silk Dupatta" width="44" height="44" loading="lazy">
-                                        <div><strong>Chanderi Silk Dupatta</strong><small>SKU BB-P5</small></div>
-                                    </div>
-                                </td>
-                                <td data-label="Category">Clothing</td>
-                                <td data-label="Price">₹1,650</td>
-                                <td data-label="Stock">25</td>
-                                <td data-label="Status"><span class="badge-cc badge-open" data-st><i
-                                            class="fa-solid fa-circle-check" aria-hidden="true"></i> Live</span></td>
-                                <td data-label="Actions">
-                                    <div class="actions"><a class="btn-cc btn-outline-cc btn-sm-cc"
-                                            href="edit-product.html?id=p5"><i class="fa-solid fa-pen"></i>
-                                            Edit</a><button type="button"
-                                            class="btn-cc btn-outline-cc text-danger btn-sm-cc"
-                                            data-confirm="Delete this product? It will disappear from your shop."
-                                            data-title="Delete product" data-ok="Delete"
-                                            data-done="Product deleted (demo)"><i class="fa-solid fa-trash-can"></i>
-                                            Delete</button></div>
-                                </td>
-                            </tr>
-                            <tr data-status="Live">
-                                <td data-label="Product">
-                                    <div class="cell-flex"><img class="thumb" src="../assets/images/products/p6.svg"
-                                            alt="Bandhani Cotton Saree" width="44" height="44" loading="lazy">
-                                        <div><strong>Bandhani Cotton Saree</strong><small>SKU BB-P6</small></div>
-                                    </div>
-                                </td>
-                                <td data-label="Category">Clothing</td>
-                                <td data-label="Price">₹2,150</td>
-                                <td data-label="Stock">40</td>
-                                <td data-label="Status"><span class="badge-cc badge-open" data-st><i
-                                            class="fa-solid fa-circle-check" aria-hidden="true"></i> Live</span></td>
-                                <td data-label="Actions">
-                                    <div class="actions"><a class="btn-cc btn-outline-cc btn-sm-cc"
-                                            href="edit-product.html?id=p6"><i class="fa-solid fa-pen"></i>
-                                            Edit</a><button type="button"
-                                            class="btn-cc btn-outline-cc text-danger btn-sm-cc"
-                                            data-confirm="Delete this product? It will disappear from your shop."
-                                            data-title="Delete product" data-ok="Delete"
-                                            data-done="Product deleted (demo)"><i class="fa-solid fa-trash-can"></i>
-                                            Delete</button></div>
-                                </td>
-                            </tr>
-                            <tr data-status="Out of stock">
-                                <td data-label="Product">
-                                    <div class="cell-flex"><img class="thumb" src="../assets/images/products/p7.svg"
-                                            alt="Ajrakh Cotton Stole" width="44" height="44" loading="lazy">
-                                        <div><strong>Ajrakh Cotton Stole</strong><small>SKU BB-P7</small></div>
-                                    </div>
-                                </td>
-                                <td data-label="Category">Clothing</td>
-                                <td data-label="Price">₹690</td>
-                                <td data-label="Stock">0</td>
-                                <td data-label="Status"><span class="badge-cc badge-closed" data-st><i
-                                            class="fa-solid fa-circle-xmark" aria-hidden="true"></i> Out of stock</span>
-                                </td>
-                                <td data-label="Actions">
-                                    <div class="actions"><a class="btn-cc btn-outline-cc btn-sm-cc"
-                                            href="edit-product.html?id=p7"><i class="fa-solid fa-pen"></i>
-                                            Edit</a><button type="button"
-                                            class="btn-cc btn-outline-cc text-danger btn-sm-cc"
-                                            data-confirm="Delete this product? It will disappear from your shop."
-                                            data-title="Delete product" data-ok="Delete"
-                                            data-done="Product deleted (demo)"><i class="fa-solid fa-trash-can"></i>
-                                            Delete</button></div>
-                                </td>
-                            </tr>
-                            <tr data-status="Live">
-                                <td data-label="Product">
-                                    <div class="cell-flex"><img class="thumb" src="../assets/images/products/p8.svg"
-                                            alt="Cotton Palazzo Pants" width="44" height="44" loading="lazy">
-                                        <div><strong>Cotton Palazzo Pants</strong><small>SKU BB-P8</small></div>
-                                    </div>
-                                </td>
-                                <td data-label="Category">Clothing</td>
-                                <td data-label="Price">₹749</td>
-                                <td data-label="Stock">3</td>
-                                <td data-label="Status"><span class="badge-cc badge-open" data-st><i
-                                            class="fa-solid fa-circle-check" aria-hidden="true"></i> Live</span></td>
-                                <td data-label="Actions">
-                                    <div class="actions"><a class="btn-cc btn-outline-cc btn-sm-cc"
-                                            href="edit-product.html?id=p8"><i class="fa-solid fa-pen"></i>
-                                            Edit</a><button type="button"
-                                            class="btn-cc btn-outline-cc text-danger btn-sm-cc"
-                                            data-confirm="Delete this product? It will disappear from your shop."
-                                            data-title="Delete product" data-ok="Delete"
-                                            data-done="Product deleted (demo)"><i class="fa-solid fa-trash-can"></i>
-                                            Delete</button></div>
-                                </td>
-                            </tr>
-                            <tr data-status="Live">
-                                <td data-label="Product">
-                                    <div class="cell-flex"><img class="thumb" src="../assets/images/products/p9.svg"
-                                            alt="Handloom Gamcha Towel" width="44" height="44" loading="lazy">
-                                        <div><strong>Handloom Gamcha Towel</strong><small>SKU BB-P9</small></div>
-                                    </div>
-                                </td>
-                                <td data-label="Category">Clothing</td>
-                                <td data-label="Price">₹280</td>
-                                <td data-label="Stock">8</td>
-                                <td data-label="Status"><span class="badge-cc badge-open" data-st><i
-                                            class="fa-solid fa-circle-check" aria-hidden="true"></i> Live</span></td>
-                                <td data-label="Actions">
-                                    <div class="actions"><a class="btn-cc btn-outline-cc btn-sm-cc"
-                                            href="edit-product.html?id=p9"><i class="fa-solid fa-pen"></i>
-                                            Edit</a><button type="button"
-                                            class="btn-cc btn-outline-cc text-danger btn-sm-cc"
-                                            data-confirm="Delete this product? It will disappear from your shop."
-                                            data-title="Delete product" data-ok="Delete"
-                                            data-done="Product deleted (demo)"><i class="fa-solid fa-trash-can"></i>
-                                            Delete</button></div>
-                                </td>
-                            </tr>
-                            <tr data-status="Live">
-                                <td data-label="Product">
-                                    <div class="cell-flex"><img class="thumb" src="../assets/images/products/p10.svg"
-                                            alt="Kids Ethnic Kurta Set" width="44" height="44" loading="lazy">
-                                        <div><strong>Kids Ethnic Kurta Set</strong><small>SKU BB-P10</small></div>
-                                    </div>
-                                </td>
-                                <td data-label="Category">Clothing</td>
-                                <td data-label="Price">₹899</td>
-                                <td data-label="Stock">14</td>
-                                <td data-label="Status"><span class="badge-cc badge-open" data-st><i
-                                            class="fa-solid fa-circle-check" aria-hidden="true"></i> Live</span></td>
-                                <td data-label="Actions">
-                                    <div class="actions"><a class="btn-cc btn-outline-cc btn-sm-cc"
-                                            href="edit-product.html?id=p10"><i class="fa-solid fa-pen"></i>
-                                            Edit</a><button type="button"
-                                            class="btn-cc btn-outline-cc text-danger btn-sm-cc"
-                                            data-confirm="Delete this product? It will disappear from your shop."
-                                            data-title="Delete product" data-ok="Delete"
-                                            data-done="Product deleted (demo)"><i class="fa-solid fa-trash-can"></i>
-                                            Delete</button></div>
-                                </td>
-                            </tr>
-                            <tr data-status="Live">
-                                <td data-label="Product">
-                                    <div class="cell-flex"><img class="thumb" src="../assets/images/products/p11.svg"
-                                            alt="Embroidered Cotton Jacket" width="44" height="44" loading="lazy">
-                                        <div><strong>Embroidered Cotton Jacket</strong><small>SKU BB-P11</small></div>
-                                    </div>
-                                </td>
-                                <td data-label="Category">Clothing</td>
-                                <td data-label="Price">₹1,590</td>
-                                <td data-label="Stock">25</td>
-                                <td data-label="Status"><span class="badge-cc badge-open" data-st><i
-                                            class="fa-solid fa-circle-check" aria-hidden="true"></i> Live</span></td>
-                                <td data-label="Actions">
-                                    <div class="actions"><a class="btn-cc btn-outline-cc btn-sm-cc"
-                                            href="edit-product.html?id=p11"><i class="fa-solid fa-pen"></i>
-                                            Edit</a><button type="button"
-                                            class="btn-cc btn-outline-cc text-danger btn-sm-cc"
-                                            data-confirm="Delete this product? It will disappear from your shop."
-                                            data-title="Delete product" data-ok="Delete"
-                                            data-done="Product deleted (demo)"><i class="fa-solid fa-trash-can"></i>
-                                            Delete</button></div>
-                                </td>
-                            </tr>
-                            <tr data-status="Draft">
-                                <td data-label="Product">
-                                    <div class="cell-flex"><img class="thumb" src="../assets/images/products/p12.svg"
-                                            alt="Khadi Cotton Shirt" width="44" height="44" loading="lazy">
-                                        <div><strong>Khadi Cotton Shirt</strong><small>SKU BB-P12</small></div>
-                                    </div>
-                                </td>
-                                <td data-label="Category">Clothing</td>
-                                <td data-label="Price">₹1,190</td>
-                                <td data-label="Stock">18</td>
-                                <td data-label="Status"><span class="badge-cc badge-info" data-st><i
-                                            class="fa-solid fa-circle-info" aria-hidden="true"></i> Draft</span></td>
-                                <td data-label="Actions">
-                                    <div class="actions"><a class="btn-cc btn-outline-cc btn-sm-cc"
-                                            href="edit-product.html?id=p12"><i class="fa-solid fa-pen"></i>
-                                            Edit</a><button type="button"
-                                            class="btn-cc btn-outline-cc text-danger btn-sm-cc"
-                                            data-confirm="Delete this product? It will disappear from your shop."
-                                            data-title="Delete product" data-ok="Delete"
-                                            data-done="Product deleted (demo)"><i class="fa-solid fa-trash-can"></i>
-                                            Delete</button></div>
-                                </td>
-                            </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
